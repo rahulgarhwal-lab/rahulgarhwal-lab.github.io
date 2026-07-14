@@ -1,24 +1,629 @@
-RG
-Rahul Garhwal Lab
-☰
-PERSPECTIVE
-How I Think
-Years of practice shaped a simple operating model.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Rahul Garhwal Lab — an executive point of view built through experience, tested in practice, and supported by evidence." />
+  <title>Rahul Garhwal Lab</title>
 
-SEE THE WHOLE SYSTEM
+  <style>
+    :root{
+      --navy:#071b3a;
+      --blue:#1f6feb;
+      --blue-soft:#eef5ff;
+      --green:#11805f;
+      --green-soft:#edf9f4;
+      --purple:#6941c6;
+      --purple-soft:#f4f0ff;
+      --ink:#172033;
+      --muted:#5f6b7a;
+      --line:#e7ebf1;
+      --paper:#ffffff;
+      --bg:#f7f9fc;
+      --shadow:0 12px 28px rgba(16,24,40,.08);
+      --radius:22px;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
 
-People · Process · Data · Incentives
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--ink);
+      font-family:var(--sans);
+    }
 
-DESIGN AROUND THE DECISION
+    a{color:inherit}
 
-What must change next?
+    .site-shell{
+      min-height:100vh;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(31,111,235,.05), transparent 28%),
+        radial-gradient(circle at 85% 30%, rgba(105,65,198,.04), transparent 25%),
+        var(--bg);
+    }
 
-MEASURE WHAT CHANGES
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:20;
+      background:rgba(255,255,255,.92);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid var(--line);
+    }
 
-Adoption · Behavior · Value
-“
+    .nav{
+      max-width:1180px;
+      margin:auto;
+      height:76px;
+      padding:0 28px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
 
-THE TAKEAWAY
-The goal is not more data. It is better decisions and measurable outcomes.
-Explore the perspective
-→
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      text-decoration:none;
+    }
+
+    .monogram{
+      font-family:var(--serif);
+      font-size:30px;
+      color:var(--blue);
+      line-height:1;
+    }
+
+    .brand-name{
+      font-family:var(--serif);
+      font-weight:700;
+      font-size:22px;
+      color:var(--navy);
+      white-space:nowrap;
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:30px;
+      font-size:14px;
+      color:#2f3a4d;
+    }
+
+    .nav-links a{
+      text-decoration:none;
+      padding:27px 0 23px;
+      border-bottom:3px solid transparent;
+    }
+
+    .nav-links a.active{
+      color:var(--blue);
+      border-color:var(--blue);
+      font-weight:700;
+    }
+
+    .connect{
+      background:var(--blue);
+      color:white !important;
+      padding:11px 18px !important;
+      border-radius:10px;
+      border-bottom:0 !important;
+      font-weight:700;
+    }
+
+    .menu{
+      display:none;
+      background:none;
+      border:0;
+      font-size:30px;
+      color:var(--navy);
+      cursor:pointer;
+    }
+
+    main{
+      max-width:1180px;
+      margin:auto;
+      padding:58px 28px 80px;
+    }
+
+    .eyebrow{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      color:var(--blue);
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      font-weight:800;
+      font-size:15px;
+      margin-bottom:18px;
+    }
+
+    .eyebrow::before{
+      content:"";
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      background:var(--blue);
+    }
+
+    h1{
+      font-family:var(--serif);
+      font-size:64px;
+      line-height:1;
+      margin:0;
+      color:var(--navy);
+      letter-spacing:-.035em;
+    }
+
+    .intro{
+      margin:20px 0 40px;
+      font-size:21px;
+      color:#42506a;
+      line-height:1.45;
+    }
+
+    .principles{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:18px;
+    }
+
+    .principle{
+      position:relative;
+      background:var(--paper);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:30px 26px 28px;
+      min-height:235px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    .principle::before{
+      content:"";
+      position:absolute;
+      left:0;
+      top:0;
+      bottom:0;
+      width:4px;
+      background:var(--accent);
+    }
+
+    .principle.blue{--accent:var(--blue); --soft:var(--blue-soft)}
+    .principle.green{--accent:var(--green); --soft:var(--green-soft)}
+    .principle.purple{--accent:var(--purple); --soft:var(--purple-soft)}
+
+    .icon-wrap{
+      width:82px;
+      height:82px;
+      border-radius:50%;
+      background:var(--soft);
+      display:grid;
+      place-items:center;
+      margin-bottom:26px;
+    }
+
+    .icon{
+      width:46px;
+      height:46px;
+      stroke:var(--accent);
+      fill:none;
+      stroke-width:2.1;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+    }
+
+    .principle h2{
+      font-size:20px;
+      margin:0 0 18px;
+      text-transform:uppercase;
+      letter-spacing:.01em;
+      color:var(--navy);
+    }
+
+    .accent-line{
+      width:34px;
+      height:2px;
+      background:var(--accent);
+      margin-bottom:20px;
+    }
+
+    .principle p{
+      margin:0;
+      color:#445069;
+      font-size:17px;
+      line-height:1.55;
+    }
+
+    .takeaway{
+      margin-top:22px;
+      border-radius:var(--radius);
+      background:linear-gradient(135deg, #061a39 0%, #072653 100%);
+      color:white;
+      padding:34px 38px;
+      display:grid;
+      grid-template-columns:72px 1px 1fr;
+      align-items:center;
+      gap:28px;
+      box-shadow:0 18px 36px rgba(7,27,58,.18);
+    }
+
+    .quote-icon{
+      width:72px;
+      height:72px;
+      border-radius:50%;
+      background:#0b326e;
+      display:grid;
+      place-items:center;
+      font-family:var(--serif);
+      font-size:58px;
+      color:#58a0ff;
+      line-height:1;
+    }
+
+    .divider{
+      height:88px;
+      width:1px;
+      background:rgba(255,255,255,.28);
+    }
+
+    .takeaway-label{
+      color:#5ea1ff;
+      text-transform:uppercase;
+      letter-spacing:.1em;
+      font-weight:800;
+      font-size:13px;
+      margin-bottom:8px;
+    }
+
+    .takeaway-text{
+      font-family:var(--serif);
+      font-size:31px;
+      line-height:1.22;
+      margin:0;
+    }
+
+    .explore{
+      display:flex;
+      justify-content:center;
+      margin:30px 0 0;
+    }
+
+    .explore button{
+      border:0;
+      background:none;
+      color:var(--blue);
+      font-size:17px;
+      font-weight:800;
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .arrow{
+      transition:transform .25s ease;
+      font-size:24px;
+    }
+
+    .explore button[aria-expanded="true"] .arrow{
+      transform:rotate(90deg);
+    }
+
+    .deep-dive{
+      display:none;
+      margin-top:28px;
+      background:white;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:34px;
+      box-shadow:var(--shadow);
+    }
+
+    .deep-dive.open{display:block}
+
+    .deep-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:26px;
+    }
+
+    .deep-item h3{
+      margin:0 0 12px;
+      font-size:18px;
+      color:var(--navy);
+    }
+
+    .deep-item ul{
+      margin:0;
+      padding-left:18px;
+      color:#4c586d;
+      line-height:1.6;
+    }
+
+    .framework{
+      margin-top:28px;
+      border-radius:18px;
+      background:linear-gradient(135deg, #f3f7ff, #f8fbff);
+      padding:24px;
+      display:grid;
+      grid-template-columns:1fr auto;
+      align-items:center;
+      gap:24px;
+    }
+
+    .framework h3{
+      margin:0 0 8px;
+      color:var(--navy);
+    }
+
+    .framework p{
+      margin:0;
+      color:#526078;
+    }
+
+    .flow{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      font-weight:800;
+      color:var(--navy);
+      white-space:nowrap;
+    }
+
+    .flow-node{
+      width:58px;
+      height:58px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:white;
+      border:1px solid var(--line);
+      box-shadow:0 6px 16px rgba(16,24,40,.06);
+    }
+
+    @media (max-width: 860px){
+      .nav-links{display:none}
+      .menu{display:block}
+      main{padding:42px 18px 64px}
+      h1{font-size:48px}
+      .intro{font-size:18px; max-width:32ch}
+      .principles{grid-template-columns:1fr}
+      .principle{
+        min-height:auto;
+        display:grid;
+        grid-template-columns:92px 1fr;
+        grid-template-areas:
+          "icon title"
+          "icon line"
+          "icon copy";
+        column-gap:22px;
+        padding:22px 20px;
+      }
+      .icon-wrap{
+        grid-area:icon;
+        width:82px;
+        height:82px;
+        margin:0;
+      }
+      .principle h2{
+        grid-area:title;
+        margin:3px 0 8px;
+        font-size:17px;
+      }
+      .accent-line{grid-area:line; margin:0 0 10px}
+      .principle p{
+        grid-area:copy;
+        font-size:15.5px;
+      }
+      .takeaway{
+        grid-template-columns:56px 1px 1fr;
+        gap:18px;
+        padding:26px 22px;
+      }
+      .quote-icon{
+        width:56px;
+        height:56px;
+        font-size:44px;
+      }
+      .divider{height:92px}
+      .takeaway-text{font-size:24px}
+      .deep-grid{grid-template-columns:1fr}
+      .framework{grid-template-columns:1fr}
+      .flow{justify-content:center; flex-wrap:wrap}
+    }
+
+    @media (max-width: 520px){
+      .nav{height:66px; padding:0 18px}
+      .brand-name{font-size:18px}
+      .monogram{font-size:26px}
+      main{padding-top:34px}
+      .eyebrow{font-size:13px}
+      h1{font-size:44px}
+      .intro{margin:16px 0 30px}
+      .principle{
+        grid-template-columns:78px 1fr;
+        column-gap:16px;
+        border-radius:18px;
+      }
+      .icon-wrap{width:70px;height:70px}
+      .icon{width:40px;height:40px}
+      .principle h2{
+        font-size:15px;
+        line-height:1.25;
+      }
+      .principle p{font-size:14px}
+      .takeaway{
+        grid-template-columns:48px 1px 1fr;
+        gap:14px;
+        padding:22px 18px;
+        border-radius:18px;
+      }
+      .quote-icon{width:48px;height:48px;font-size:38px}
+      .divider{height:108px}
+      .takeaway-label{font-size:11px}
+      .takeaway-text{font-size:20px}
+      .deep-dive{padding:24px 20px}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="site-shell">
+    <header class="topbar">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="#">
+          <span class="monogram">RG</span>
+          <span class="brand-name">Rahul Garhwal Lab</span>
+        </a>
+
+        <div class="nav-links">
+          <a href="#" class="active">Perspective</a>
+          <a href="#">Ideas</a>
+          <a href="#">Evidence</a>
+          <a href="#">Evolution</a>
+          <a href="#">Beyond Work</a>
+          <a href="#" class="connect">Connect</a>
+        </div>
+
+        <button class="menu" aria-label="Open menu">☰</button>
+      </nav>
+    </header>
+
+    <main>
+      <section aria-labelledby="how-i-think">
+        <div class="eyebrow">Perspective</div>
+        <h1 id="how-i-think">How I Think</h1>
+        <p class="intro">Years of practice shaped a simple operating model.</p>
+
+        <div class="principles">
+          <article class="principle blue">
+            <div class="icon-wrap" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 48 48">
+                <circle cx="24" cy="24" r="6"></circle>
+                <circle cx="24" cy="7" r="4"></circle>
+                <circle cx="40" cy="17" r="4"></circle>
+                <circle cx="38" cy="36" r="4"></circle>
+                <circle cx="10" cy="36" r="4"></circle>
+                <circle cx="8" cy="17" r="4"></circle>
+                <path d="M24 18V11M29 20l7-2M29 28l6 5M19 28l-6 5M19 20l-7-2"></path>
+              </svg>
+            </div>
+            <h2>See the whole system</h2>
+            <div class="accent-line"></div>
+            <p>People · Process · Data · Incentives</p>
+          </article>
+
+          <article class="principle green">
+            <div class="icon-wrap" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 48 48">
+                <circle cx="24" cy="19" r="7"></circle>
+                <path d="M13 39c1.5-8 6-12 11-12s9.5 4 11 12"></path>
+                <path d="M7 16V8h8M41 16V8h-8M7 32v8h8M41 32v8h-8"></path>
+              </svg>
+            </div>
+            <h2>Design around the decision</h2>
+            <div class="accent-line"></div>
+            <p>What must change next?</p>
+          </article>
+
+          <article class="principle purple">
+            <div class="icon-wrap" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 48 48">
+                <rect x="8" y="28" width="7" height="12" rx="1"></rect>
+                <rect x="21" y="21" width="7" height="19" rx="1"></rect>
+                <rect x="34" y="11" width="7" height="29" rx="1"></rect>
+                <path d="M8 18c8 1 13-2 18-7 4-4 8-5 15-6"></path>
+                <path d="M36 5h5v5"></path>
+              </svg>
+            </div>
+            <h2>Measure what changes</h2>
+            <div class="accent-line"></div>
+            <p>Adoption · Behavior · Value</p>
+          </article>
+        </div>
+
+        <aside class="takeaway" aria-label="The takeaway">
+          <div class="quote-icon">“</div>
+          <div class="divider"></div>
+          <div>
+            <div class="takeaway-label">The takeaway</div>
+            <p class="takeaway-text">The goal is not more data.<br><strong>It is better decisions and measurable outcomes.</strong></p>
+          </div>
+        </aside>
+
+        <div class="explore">
+          <button id="exploreButton" aria-expanded="false" aria-controls="deepDive">
+            Explore the perspective <span class="arrow">→</span>
+          </button>
+        </div>
+
+        <section class="deep-dive" id="deepDive">
+          <div class="deep-grid">
+            <article class="deep-item">
+              <h3>See the whole system</h3>
+              <ul>
+                <li>Connect people, process, data, technology and incentives.</li>
+                <li>Look beyond the obvious to understand context.</li>
+                <li>Recognize that context changes what matters.</li>
+              </ul>
+            </article>
+
+            <article class="deep-item">
+              <h3>Design around the decision</h3>
+              <ul>
+                <li>Start with the decision that matters.</li>
+                <li>Remove friction and add clarity.</li>
+                <li>Make the next best action easier.</li>
+              </ul>
+            </article>
+
+            <article class="deep-item">
+              <h3>Measure what changes</h3>
+              <ul>
+                <li>Focus on adoption, behavior, efficiency and value.</li>
+                <li>Track outcomes that matter to the business.</li>
+                <li>Use evidence to refine the product and the decision.</li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="framework">
+            <div>
+              <h3>My operating framework</h3>
+              <p>Start with the problem. Design around the decision. Measure the outcome.</p>
+            </div>
+
+            <div class="flow" aria-label="Problem to decision to outcome">
+              <span class="flow-node">?</span>
+              <span>→</span>
+              <span class="flow-node">◎</span>
+              <span>→</span>
+              <span class="flow-node">↗</span>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const button = document.getElementById('exploreButton');
+    const panel = document.getElementById('deepDive');
+
+    button.addEventListener('click', () => {
+      const isOpen = panel.classList.toggle('open');
+      button.setAttribute('aria-expanded', String(isOpen));
+      button.firstChild.textContent = isOpen ? 'Close the perspective ' : 'Explore the perspective ';
+      if (isOpen) {
+        panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    });
+  </script>
+</body>
+</html>

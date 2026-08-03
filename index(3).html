@@ -1,0 +1,1976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Rahul Garhwal Lab examines how organizations turn data, analytics, digital, and AI capabilities into decisions, adoption, action, and measurable value."
+  />
+  <title>Rahul Garhwal Lab</title>
+
+  <style>
+    :root {
+      --ink: #0b1f3a;
+      --ink-soft: #33445f;
+      --muted: #697386;
+      --line: #dfe6ef;
+      --paper: #f8fafc;
+      --white: #ffffff;
+      --navy: #0d2d57;
+      --blue: #2d63d8;
+      --teal: #0c8a83;
+      --purple: #7138b8;
+      --gold: #c97d16;
+      --shadow: 0 18px 48px rgba(13, 45, 87, 0.08);
+      --shadow-strong: 0 28px 80px rgba(13, 45, 87, 0.14);
+      --radius-xl: 30px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --content: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 0%, rgba(45, 99, 216, 0.08), transparent 28rem),
+        radial-gradient(circle at 88% 18%, rgba(113, 56, 184, 0.07), transparent 28rem),
+        var(--paper);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; }
+
+    svg { display: block; }
+
+    .container {
+      width: min(calc(100% - 40px), var(--content));
+      margin-inline: auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(223, 230, 239, 0.86);
+      background: rgba(248, 250, 252, 0.88);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav-wrap {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      font-weight: 850;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      color: var(--white);
+      background: linear-gradient(135deg, var(--navy), var(--purple));
+      box-shadow: 0 10px 24px rgba(13, 45, 87, 0.18);
+      font-size: 0.78rem;
+      letter-spacing: 0.03em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--ink-soft);
+      font-size: 0.94rem;
+      font-weight: 700;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible { color: var(--blue); }
+
+    .menu-button {
+      display: none;
+      border: 0;
+      background: transparent;
+      color: var(--ink);
+      font-size: 1.45rem;
+      cursor: pointer;
+    }
+
+    main { overflow: clip; }
+
+    section { scroll-margin-top: 92px; }
+
+    .eyebrow {
+      margin: 0 0 15px;
+      color: var(--blue);
+      font-size: 0.76rem;
+      font-weight: 900;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 {
+      margin-top: 0;
+      line-height: 1.08;
+      letter-spacing: -0.035em;
+    }
+
+    h1 {
+      margin-bottom: 24px;
+      font-size: clamp(3rem, 6.6vw, 6.2rem);
+      font-weight: 880;
+    }
+
+    h2 {
+      margin-bottom: 18px;
+      font-size: clamp(2rem, 4vw, 4rem);
+      font-weight: 850;
+    }
+
+    h3 {
+      font-size: 1.42rem;
+      font-weight: 820;
+    }
+
+    .hero {
+      padding: 94px 0 76px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
+      gap: 54px;
+      align-items: center;
+    }
+
+    .hero-lead {
+      max-width: 790px;
+      margin: 0;
+      color: var(--ink-soft);
+      font-size: clamp(1.13rem, 2vw, 1.38rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 780;
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    }
+
+    .button:hover { transform: translateY(-2px); }
+
+    .button-primary {
+      color: var(--white);
+      background: var(--navy);
+      box-shadow: 0 10px 24px rgba(13, 45, 87, 0.2);
+    }
+
+    .button-secondary {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 520px;
+      display: grid;
+      place-items: center;
+    }
+
+    .hero-orbit {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at center, rgba(255,255,255,0.9) 0 28%, transparent 29%),
+        conic-gradient(
+          from 30deg,
+          rgba(45, 99, 216, 0.16),
+          rgba(12, 138, 131, 0.12),
+          rgba(113, 56, 184, 0.13),
+          rgba(201, 125, 22, 0.11),
+          rgba(45, 99, 216, 0.16)
+        );
+      filter: blur(0.2px);
+    }
+
+    .hero-diagram {
+      position: relative;
+      width: min(100%, 500px);
+      padding: 28px;
+      border: 1px solid rgba(223, 230, 239, 0.9);
+      border-radius: var(--radius-xl);
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: var(--shadow-strong);
+    }
+
+    .diagram-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 26px;
+    }
+
+    .diagram-title strong {
+      font-size: 1.12rem;
+      letter-spacing: -0.02em;
+    }
+
+    .diagram-pill {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(45, 99, 216, 0.08);
+      color: var(--blue);
+      font-size: 0.72rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .flow-rail {
+      display: grid;
+      gap: 14px;
+    }
+
+    .flow-node {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 14px;
+      align-items: center;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: #fff;
+    }
+
+    .flow-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      color: var(--blue);
+      background: rgba(45, 99, 216, 0.08);
+    }
+
+    .flow-node:nth-child(2) .flow-icon {
+      color: var(--teal);
+      background: rgba(12, 138, 131, 0.09);
+    }
+
+    .flow-node:nth-child(3) .flow-icon {
+      color: var(--purple);
+      background: rgba(113, 56, 184, 0.09);
+    }
+
+    .flow-node:nth-child(4) .flow-icon {
+      color: var(--gold);
+      background: rgba(201, 125, 22, 0.1);
+    }
+
+    .flow-node strong {
+      display: block;
+      margin-bottom: 2px;
+      font-size: 0.96rem;
+    }
+
+    .flow-node span {
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .flow-arrow {
+      color: var(--muted);
+      font-size: 1.1rem;
+      font-weight: 900;
+    }
+
+    .hero-note {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 14px;
+      align-items: start;
+      max-width: 900px;
+      margin-top: 44px;
+      padding: 18px 20px;
+      border: 1px solid rgba(45, 99, 216, 0.16);
+      border-radius: var(--radius-md);
+      background: rgba(45, 99, 216, 0.05);
+    }
+
+    .hero-note strong {
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .hero-note p {
+      margin: 0;
+      color: var(--ink-soft);
+    }
+
+    .section { padding: 92px 0; }
+
+    .section-soft {
+      border-block: 1px solid rgba(223, 230, 239, 0.82);
+      background: rgba(255, 255, 255, 0.7);
+    }
+
+    .section-intro {
+      max-width: 780px;
+      margin-bottom: 44px;
+    }
+
+    .section-intro p {
+      margin: 0;
+      color: var(--ink-soft);
+      font-size: 1.1rem;
+    }
+
+    .question-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      position: relative;
+      padding: 30px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: var(--shadow);
+    }
+
+    .question-card {
+      min-height: 300px;
+      overflow: hidden;
+    }
+
+    .question-card::after {
+      content: "";
+      position: absolute;
+      right: -52px;
+      bottom: -76px;
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(45, 99, 216, 0.11), rgba(113, 56, 184, 0.05));
+    }
+
+    .icon-badge {
+      width: 50px;
+      height: 50px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 22px;
+      border-radius: 15px;
+      color: var(--blue);
+      background: rgba(45, 99, 216, 0.08);
+    }
+
+    .question-card:nth-child(2) .icon-badge,
+    .question-card:nth-child(6) .icon-badge {
+      color: var(--teal);
+      background: rgba(12, 138, 131, 0.09);
+    }
+
+    .question-card:nth-child(3) .icon-badge,
+    .question-card:nth-child(5) .icon-badge {
+      color: var(--purple);
+      background: rgba(113, 56, 184, 0.09);
+    }
+
+    .question-card:nth-child(4) .icon-badge {
+      color: var(--gold);
+      background: rgba(201, 125, 22, 0.1);
+    }
+
+    .card-kicker {
+      margin: 0 0 11px;
+      color: var(--teal);
+      font-size: 0.76rem;
+      font-weight: 880;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .card p { margin: 0; color: var(--ink-soft); }
+
+    .chain-shell {
+      padding: 34px;
+      border-radius: var(--radius-xl);
+      color: var(--white);
+      background:
+        radial-gradient(circle at 15% 15%, rgba(255,255,255,0.12), transparent 18rem),
+        linear-gradient(135deg, rgba(13, 45, 87, 0.99), rgba(45, 99, 216, 0.95));
+      box-shadow: 0 28px 70px rgba(13, 45, 87, 0.22);
+    }
+
+    .chain-shell > p {
+      max-width: 800px;
+      margin: 0 0 30px;
+      color: rgba(255,255,255,0.78);
+    }
+
+    .chain-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .chain-item {
+      min-height: 176px;
+      padding: 18px;
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .chain-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+      border-radius: 13px;
+      background: rgba(255,255,255,0.12);
+    }
+
+    .chain-item strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 0.98rem;
+    }
+
+    .chain-item p {
+      margin: 0;
+      color: rgba(255,255,255,0.72);
+      font-size: 0.89rem;
+    }
+
+    .exploration-stack {
+      display: grid;
+      gap: 24px;
+    }
+
+    .exploration-card {
+      display: grid;
+      grid-template-columns: minmax(210px, 0.42fr) minmax(0, 1fr);
+      gap: 30px;
+      align-items: start;
+      padding: 34px;
+    }
+
+    .exploration-visual {
+      min-height: 260px;
+      display: grid;
+      place-items: center;
+      padding: 22px;
+      border-radius: 22px;
+      background:
+        radial-gradient(circle at top left, rgba(45,99,216,0.12), transparent 16rem),
+        linear-gradient(145deg, #f7f9fc, #edf2f8);
+    }
+
+    .exploration-number {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+      color: var(--purple);
+      font-weight: 850;
+    }
+
+    .exploration-number::before {
+      content: "";
+      width: 42px;
+      height: 2px;
+      background: currentColor;
+    }
+
+    .exploration-body h3 {
+      margin-bottom: 12px;
+      font-size: clamp(1.6rem, 3vw, 2.3rem);
+    }
+
+    .exploration-body .summary {
+      max-width: 760px;
+      margin-bottom: 22px;
+      color: var(--ink-soft);
+      font-size: 1.04rem;
+    }
+
+    .lens-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .lens {
+      padding: 18px;
+      border-radius: 14px;
+      background: #f5f7fa;
+    }
+
+    .lens strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 0.91rem;
+    }
+
+    .lens p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.89rem;
+    }
+
+    .quote {
+      margin: 22px 0 0;
+      padding: 20px 22px;
+      border-left: 4px solid var(--gold);
+      background: rgba(201, 125, 22, 0.06);
+      font-weight: 760;
+    }
+
+
+    .exploration-feature {
+      grid-template-columns: 1fr;
+    }
+
+    .infographic-frame {
+      display: block;
+      min-height: auto;
+      padding: 0;
+      overflow: hidden;
+      background: #ffffff;
+    }
+
+    .infographic-button {
+      display: block;
+      width: 100%;
+      padding: 0;
+      border: 0;
+      background: #ffffff;
+      cursor: zoom-in;
+    }
+
+    .infographic-button img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .visual-caption {
+      margin: 0;
+      padding: 10px 16px 14px;
+      color: var(--muted);
+      font-size: 0.82rem;
+      text-align: center;
+      background: #ffffff;
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(5, 18, 36, 0.88);
+      backdrop-filter: blur(10px);
+    }
+
+    .lightbox.open {
+      display: flex;
+    }
+
+    .lightbox-dialog {
+      position: relative;
+      width: min(96vw, 1600px);
+      max-height: 92vh;
+      overflow: auto;
+      border-radius: 18px;
+      background: #ffffff;
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.35);
+    }
+
+    .lightbox-dialog img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .lightbox-close {
+      position: sticky;
+      top: 12px;
+      float: right;
+      z-index: 2;
+      width: 42px;
+      height: 42px;
+      margin: 12px 12px -54px 0;
+      border: 0;
+      border-radius: 50%;
+      color: #ffffff;
+      background: rgba(11, 31, 58, 0.88);
+      font-size: 1.35rem;
+      cursor: pointer;
+    }
+
+    .evidence-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .evidence-card {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      min-height: 100%;
+    }
+
+    .evidence-top {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .metric-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .metric {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #f8fafc;
+    }
+
+    .metric strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--navy);
+      font-size: 1.5rem;
+      letter-spacing: -0.03em;
+    }
+
+    .metric span {
+      color: var(--muted);
+      font-size: 0.83rem;
+    }
+
+    .evidence-note {
+      margin-top: auto;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--ink-soft);
+      font-size: 0.91rem;
+    }
+
+    .evolution {
+      display: grid;
+      grid-template-columns: 0.76fr 1.24fr;
+      gap: 44px;
+      align-items: start;
+    }
+
+    .about-panel {
+      padding: 34px;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(145deg, #ffffff, #f2f5fa);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .about-panel p { color: var(--ink-soft); }
+
+    .about-panel strong { color: var(--ink); }
+
+    .evolution-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .evolution-step {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 16px;
+      padding: 19px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .evolution-step:last-child { border-bottom: 0; }
+
+    .step-dot {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      color: var(--blue);
+      background: linear-gradient(135deg, rgba(45,99,216,0.12), rgba(12,138,131,0.12));
+    }
+
+    .evolution-step h3 {
+      margin-bottom: 6px;
+      font-size: 1.14rem;
+    }
+
+    .evolution-step p {
+      margin: 0;
+      color: var(--ink-soft);
+    }
+
+    .beyond-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .beyond-card {
+      min-height: 175px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 20px;
+      border-radius: 20px;
+      color: var(--white);
+      background:
+        linear-gradient(180deg, rgba(13,45,87,0.04), rgba(13,45,87,0.9)),
+        linear-gradient(135deg, var(--blue), var(--purple));
+    }
+
+    .beyond-card:nth-child(2) {
+      background:
+        linear-gradient(180deg, rgba(13,45,87,0.04), rgba(13,45,87,0.9)),
+        linear-gradient(135deg, var(--teal), var(--navy));
+    }
+
+    .beyond-card:nth-child(3) {
+      background:
+        linear-gradient(180deg, rgba(13,45,87,0.04), rgba(13,45,87,0.9)),
+        linear-gradient(135deg, var(--gold), var(--purple));
+    }
+
+    .beyond-card:nth-child(4) {
+      background:
+        linear-gradient(180deg, rgba(13,45,87,0.04), rgba(13,45,87,0.9)),
+        linear-gradient(135deg, var(--purple), var(--blue));
+    }
+
+    .beyond-icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      margin-bottom: auto;
+      border-radius: 15px;
+      background: rgba(255,255,255,0.14);
+      backdrop-filter: blur(8px);
+    }
+
+    .connect-panel {
+      display: grid;
+      grid-template-columns: 1.4fr auto;
+      gap: 28px;
+      align-items: center;
+      padding: 42px;
+      border-radius: var(--radius-xl);
+      color: var(--white);
+      background:
+        radial-gradient(circle at 80% 20%, rgba(255,255,255,0.08), transparent 16rem),
+        var(--ink);
+      box-shadow: 0 30px 70px rgba(13,45,87,0.24);
+    }
+
+    .connect-panel h2 {
+      margin-bottom: 12px;
+      color: var(--white);
+    }
+
+    .connect-panel p {
+      max-width: 720px;
+      margin: 0;
+      color: rgba(255,255,255,0.72);
+    }
+
+    .connect-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+
+    .connect-actions .button { min-width: 120px; }
+
+    .connect-actions .button-primary {
+      color: var(--ink);
+      background: var(--white);
+    }
+
+    .connect-actions .button-secondary {
+      border-color: rgba(255,255,255,0.22);
+      color: var(--white);
+      background: rgba(255,255,255,0.08);
+    }
+
+    .site-footer {
+      padding: 34px 0 48px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .footer-wrap {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .footer-wrap p { margin: 0; }
+
+    .footer-links {
+      display: flex;
+      gap: 18px;
+    }
+
+    .footer-links a { text-decoration: none; }
+    .footer-links a:hover { color: var(--blue); }
+
+    @media (max-width: 1040px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual {
+        min-height: auto;
+      }
+
+      .hero-orbit {
+        width: 420px;
+        height: 420px;
+      }
+
+      .chain-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .exploration-card {
+        grid-template-columns: 1fr;
+      }
+
+      .exploration-visual {
+        min-height: 220px;
+      }
+
+      .lens-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .evolution {
+        grid-template-columns: 1fr;
+      }
+
+      .beyond-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .connect-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .connect-actions {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 960px) {
+      .nav-links {
+        position: absolute;
+        inset: 74px 20px auto 20px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 10px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: rgba(255,255,255,0.98);
+        box-shadow: var(--shadow);
+      }
+
+      .nav-links.open { display: flex; }
+
+      .nav-links a {
+        padding: 13px 14px;
+        border-radius: 10px;
+      }
+
+      .menu-button { display: inline-flex; }
+
+      .question-grid,
+      .evidence-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .container {
+        width: min(calc(100% - 24px), var(--content));
+      }
+
+      .hero { padding: 70px 0 54px; }
+
+      h1 { font-size: clamp(2.55rem, 14vw, 4.7rem); }
+
+      .hero-orbit { display: none; }
+
+      .hero-diagram,
+      .card,
+      .chain-shell,
+      .exploration-card,
+      .connect-panel,
+      .about-panel {
+        padding: 23px;
+        border-radius: 20px;
+      }
+
+      .section { padding: 68px 0; }
+
+      .question-card { min-height: auto; }
+
+      .chain-grid,
+      .metric-row,
+      .beyond-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-wrap {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .footer-links { flex-wrap: wrap; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#top" aria-label="Rahul Garhwal Lab home">
+        <span class="brand-mark">RGL</span>
+        <span>Rahul Garhwal Lab</span>
+      </a>
+
+      <button class="menu-button" aria-expanded="false" aria-controls="site-navigation">
+        ☰
+      </button>
+
+      <nav class="nav-links" id="site-navigation" aria-label="Main navigation">
+        <a href="#questions">Questions</a>
+        <a href="#point-of-view">Point of View</a>
+        <a href="#explorations">Explorations</a>
+        <a href="#evidence">Evidence</a>
+        <a href="#evolution">Evolution</a>
+        <a href="#connect">Connect</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Enterprise capability → commercial consequence</p>
+          <h1>The missing middle between capability and value.</h1>
+
+          <p class="hero-lead">
+            Organizations are expanding their data, analytics, digital, and AI capabilities.
+            The harder work is connecting those capabilities to consequential decisions, real
+            workflows, changed behavior, and measurable outcomes.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="#questions">Explore the questions</a>
+            <a class="button button-secondary" href="#evidence">See the evidence</a>
+          </div>
+
+          <div class="hero-note">
+            <strong>Rahul Garhwal Lab</strong>
+            <p>
+              A practical examination of how enterprise intelligence moves from signals and
+              systems into judgment, action, adoption, and value.
+            </p>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="Capability to value visual">
+          <div class="hero-orbit"></div>
+          <div class="hero-diagram">
+            <div class="diagram-title">
+              <strong>Capability-to-value path</strong>
+              <span class="diagram-pill">Working model</span>
+            </div>
+
+            <div class="flow-rail">
+              <div class="flow-node">
+                <div class="flow-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.8"/>
+                    <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/>
+                    <path d="M12 2V5M22 12H19M12 22V19M2 12H5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div>
+                  <strong>Capability</strong>
+                  <span>Data, analytics, digital products, AI</span>
+                </div>
+                <div class="flow-arrow">↓</div>
+              </div>
+
+              <div class="flow-node">
+                <div class="flow-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M5 7H10M14 7H19M7.5 4.5V9.5M16.5 4.5V9.5M7 17H17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                    <circle cx="12" cy="17" r="3" stroke="currentColor" stroke-width="1.8"/>
+                    <path d="M12 10V14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div>
+                  <strong>Decision</strong>
+                  <span>What must change next?</span>
+                </div>
+                <div class="flow-arrow">↓</div>
+              </div>
+
+              <div class="flow-node">
+                <div class="flow-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.8"/>
+                    <circle cx="16" cy="8" r="3" stroke="currentColor" stroke-width="1.8"/>
+                    <path d="M4 19C4.6 15.7 7 14 10 14M20 19C19.4 15.7 17 14 14 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                    <path d="M10 17H14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div>
+                  <strong>Judgment + action</strong>
+                  <span>Human context inside the workflow</span>
+                </div>
+                <div class="flow-arrow">↓</div>
+              </div>
+
+              <div class="flow-node">
+                <div class="flow-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M5 18V13M10 18V9M15 18V5M20 18V2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                    <path d="M4 20H21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div>
+                  <strong>Measurable value</strong>
+                  <span>Behavior, adoption, commercial outcome</span>
+                </div>
+                <div class="flow-arrow">✓</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="questions">
+      <div class="container">
+        <div class="section-intro">
+          <p class="eyebrow">Questions behind the Lab</p>
+          <h2>The technology changes. The enterprise tensions remain.</h2>
+          <p>
+            These are not questions with one universal answer. They are recurring decisions
+            that determine whether capability becomes useful.
+          </p>
+        </div>
+
+        <div class="question-grid">
+          <article class="card question-card">
+            <div class="icon-badge">
+              <svg width="25" height="25" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.8"/>
+                <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M12 2V5M22 12H19M12 22V19M2 12H5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <p class="card-kicker">Decision</p>
+            <h3>Which decisions matter enough to redesign?</h3>
+            <p>
+              Organizations often begin with available data or a promising technology.
+              A more demanding starting point is the decision itself: who makes it, why it
+              is difficult, what information is missing, and what should improve if the
+              decision changes.
+            </p>
+          </article>
+
+          <article class="card question-card">
+            <div class="icon-badge">
+              <svg width="25" height="25" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M3 12C5.2 8.5 8.2 7 12 7C15.8 7 18.8 8.5 21 12C18.8 15.5 15.8 17 12 17C8.2 17 5.2 15.5 3 12Z" stroke="currentColor" stroke-width="1.8"/>
+                <circle cx="12" cy="12" r="2.5" stroke="currentColor" stroke-width="1.8"/>
+              </svg>
+            </div>
+            <p class="card-kicker">Attention</p>
+            <h3>When does more intelligence create less focus?</h3>
+            <p>
+              More signals, models, alerts, and recommendations can create a new burden:
+              deciding what deserves attention now. A comprehensive product may still be
+              operationally unusable.
+            </p>
+          </article>
+
+          <article class="card question-card">
+            <div class="icon-badge">
+              <svg width="25" height="25" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M4 5H20V19H4V5Z" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M8 9H16M8 13H13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <path d="M16 16L18 18L21 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <p class="card-kicker">Adoption</p>
+            <h3>Why do capable products fail to become part of the work?</h3>
+            <p>
+              Sustained use depends on workflow fit, trust, ownership, clarity, and visible
+              value. Adoption is not only a launch problem. It is also a product-design and
+              operating-model problem.
+            </p>
+          </article>
+
+          <article class="card question-card">
+            <div class="icon-badge">
+              <svg width="25" height="25" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M8 7C8 5.3 9.3 4 11 4H13C14.7 4 16 5.3 16 7V8C17.7 8 19 9.3 19 11V13C19 14.7 17.7 16 16 16V17C16 18.7 14.7 20 13 20H11C9.3 20 8 18.7 8 17V16C6.3 16 5 14.7 5 13V11C5 9.3 6.3 8 8 8V7Z" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M9 11H15M9 14H13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <p class="card-kicker">AI + Human Judgment</p>
+            <h3>What should AI support, automate, or leave human?</h3>
+            <p>
+              Capability alone does not determine where AI belongs. Consequence, uncertainty,
+              context, explainability, reversibility, and accountability should shape the
+              human role in the decision.
+            </p>
+          </article>
+
+          <article class="card question-card">
+            <div class="icon-badge">
+              <svg width="25" height="25" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M4 18V11L9 7L13 10L20 4V18H4Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                <path d="M4 18H20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <p class="card-kicker">Transformation</p>
+            <h3>What turns a successful product into enterprise transformation?</h3>
+            <p>
+              A product can scale while the surrounding business capability remains fragmented.
+              Ownership, decision rights, incentives, governance, and operating-model change
+              often determine what happens beyond the product boundary.
+            </p>
+          </article>
+
+          <article class="card question-card">
+            <div class="icon-badge">
+              <svg width="25" height="25" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M5 19V13M10 19V9M15 19V6M20 19V3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <path d="M4 21H21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <p class="card-kicker">Value</p>
+            <h3>How do we know value was actually realized?</h3>
+            <p>
+              Delivery, access, usage, and output are useful measures. They are not the same as
+              changed behavior, improved decisions, reduced effort, avoided risk, stronger
+              engagement, or measurable economic value.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="point-of-view">
+      <div class="container">
+        <div class="section-intro">
+          <p class="eyebrow">Working point of view</p>
+          <h2>Capability is only the beginning.</h2>
+          <p>
+            Enterprise discussions often emphasize the capability being built and the outcome
+            being targeted. The steps between them determine whether the expected value is ever
+            realized.
+          </p>
+        </div>
+
+        <div class="chain-shell">
+          <h3>The Capability-to-Value Path</h3>
+          <p>
+            A weak connection at any point can prevent a technically sound capability from
+            becoming a practical or economic outcome.
+          </p>
+
+          <div class="chain-grid">
+            <div class="chain-item">
+              <div class="chain-icon">
+                <svg width="23" height="23" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.8"/>
+                  <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/>
+                </svg>
+              </div>
+              <strong>Business objective</strong>
+              <p>What meaningful condition are we trying to change?</p>
+            </div>
+
+            <div class="chain-item">
+              <div class="chain-icon">
+                <svg width="23" height="23" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M5 7H10M14 7H19M7.5 4.5V9.5M16.5 4.5V9.5M7 17H17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                  <circle cx="12" cy="17" r="3" stroke="currentColor" stroke-width="1.8"/>
+                </svg>
+              </div>
+              <strong>Decision</strong>
+              <p>Which decision, action, or behavior must improve?</p>
+            </div>
+
+            <div class="chain-item">
+              <div class="chain-icon">
+                <svg width="23" height="23" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <ellipse cx="12" cy="5" rx="7" ry="3" stroke="currentColor" stroke-width="1.8"/>
+                  <path d="M5 5V12C5 13.7 8.1 15 12 15C15.9 15 19 13.7 19 12V5" stroke="currentColor" stroke-width="1.8"/>
+                  <path d="M5 12V19C5 20.7 8.1 22 12 22C15.9 22 19 20.7 19 19V12" stroke="currentColor" stroke-width="1.8"/>
+                </svg>
+              </div>
+              <strong>Data + context</strong>
+              <p>What evidence is required to understand the situation?</p>
+            </div>
+
+            <div class="chain-item">
+              <div class="chain-icon">
+                <svg width="23" height="23" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M9 18H15M10 21H14M8 14C6.8 13 6 11.5 6 9.8C6 6.6 8.7 4 12 4C15.3 4 18 6.6 18 9.8C18 11.5 17.2 13 16 14C15.3 14.6 15 15.2 15 16H9C9 15.2 8.7 14.6 8 14Z" stroke="currentColor" stroke-width="1.8"/>
+                </svg>
+              </div>
+              <strong>Intelligence</strong>
+              <p>What can analytics, products, or AI interpret or recommend?</p>
+            </div>
+
+            <div class="chain-item">
+              <div class="chain-icon">
+                <svg width="23" height="23" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <circle cx="12" cy="8" r="3.5" stroke="currentColor" stroke-width="1.8"/>
+                  <path d="M5 20C5.7 15.8 8.2 14 12 14C15.8 14 18.3 15.8 19 20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <strong>Human judgment</strong>
+              <p>What context and accountability still require a person?</p>
+            </div>
+
+            <div class="chain-item">
+              <div class="chain-icon">
+                <svg width="23" height="23" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M4 7H10L12 10H20V18H4V7Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                  <path d="M8 14H16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <strong>Workflow action</strong>
+              <p>Where and how will intelligence become part of the work?</p>
+            </div>
+
+            <div class="chain-item">
+              <div class="chain-icon">
+                <svg width="23" height="23" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <circle cx="9" cy="9" r="3" stroke="currentColor" stroke-width="1.8"/>
+                  <circle cx="16" cy="10" r="2.5" stroke="currentColor" stroke-width="1.8"/>
+                  <path d="M4 20C4.7 16.2 7.1 14 10.5 14C13.9 14 16.3 16.2 17 20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                  <path d="M15 15C17.8 15.2 19.4 16.8 20 19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <strong>Adoption</strong>
+              <p>What creates trust, ownership, repeated use, and changed behavior?</p>
+            </div>
+
+            <div class="chain-item">
+              <div class="chain-icon">
+                <svg width="23" height="23" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M5 19V13M10 19V9M15 19V6M20 19V3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                  <path d="M4 21H21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <strong>Measurable value</strong>
+              <p>What evidence shows that something important improved?</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="explorations">
+      <div class="container">
+        <div class="section-intro">
+          <p class="eyebrow">Current explorations</p>
+          <h2>Working ideas shaped through practice.</h2>
+          <p>
+            These are not finished doctrines. They reflect patterns I have encountered,
+            contributed to, sometimes misunderstood, and continued to refine.
+          </p>
+        </div>
+
+        <div class="exploration-stack">
+          <article class="card exploration-card">
+            <div class="exploration-visual">
+              <svg width="100%" viewBox="0 0 320 220" fill="none" aria-label="AI to human judgment to commercial action diagram">
+                <rect x="12" y="78" width="72" height="62" rx="18" fill="#E9F0FF"/>
+                <rect x="124" y="78" width="72" height="62" rx="18" fill="#F0EAFB"/>
+                <rect x="236" y="78" width="72" height="62" rx="18" fill="#FFF3E3"/>
+                <path d="M84 109H124M196 109H236" stroke="#91A1B8" stroke-width="3" stroke-linecap="round"/>
+                <path d="M115 101L124 109L115 117M227 101L236 109L227 117" stroke="#91A1B8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="48" cy="109" r="13" stroke="#2D63D8" stroke-width="3"/>
+                <path d="M48 90V95M48 123V128M29 109H34M62 109H67" stroke="#2D63D8" stroke-width="3" stroke-linecap="round"/>
+                <path d="M144 100C144 91 151 84 160 84C169 84 176 91 176 100V118C176 127 169 134 160 134C151 134 144 127 144 118V100Z" stroke="#7138B8" stroke-width="3"/>
+                <path d="M151 101H169M151 113H165" stroke="#7138B8" stroke-width="3" stroke-linecap="round"/>
+                <path d="M257 126V107M272 126V95M287 126V85" stroke="#C97D16" stroke-width="3" stroke-linecap="round"/>
+                <path d="M251 132H292" stroke="#C97D16" stroke-width="3" stroke-linecap="round"/>
+                <text x="48" y="165" text-anchor="middle" font-size="13" fill="#33445F" font-family="Arial">Signal</text>
+                <text x="160" y="165" text-anchor="middle" font-size="13" fill="#33445F" font-family="Arial">AI + judgment</text>
+                <text x="272" y="165" text-anchor="middle" font-size="13" fill="#33445F" font-family="Arial">Action + value</text>
+              </svg>
+            </div>
+
+            <div class="exploration-body">
+              <div class="exploration-number">Exploration 01</div>
+              <h3>AI accelerates the path. It does not define the destination.</h3>
+              <p class="summary">
+                I have been as susceptible as anyone to beginning with what a new technology
+                makes possible. Experience keeps bringing me back to a more basic question:
+                what commercial decision, action, or outcome are we actually trying to improve?
+              </p>
+
+              <div class="lens-grid">
+                <div class="lens">
+                  <strong>Common failure pattern</strong>
+                  <p>Starting with an interesting capability before defining the commercial decision.</p>
+                </div>
+                <div class="lens">
+                  <strong>Difficult trade-off</strong>
+                  <p>Automation speed versus account context, relationship risk, and accountability.</p>
+                </div>
+                <div class="lens">
+                  <strong>Diagnostic question</strong>
+                  <p>Would the problem still matter if AI were removed from the proposal?</p>
+                </div>
+              </div>
+
+              <p class="quote">
+                AI should compress the distance between a meaningful commercial signal and an
+                accountable action—without removing the judgment required to understand the
+                customer, context, and consequence.
+              </p>
+            </div>
+          </article>
+
+          <article class="card exploration-card exploration-feature">
+            <div class="exploration-visual infographic-frame">
+              <button class="infographic-button" type="button" aria-label="Open Adaptive Intelligence infographic">
+                <img src="adaptive-intelligence.png" alt="Adaptive Intelligence in Action infographic showing signals, interpretation, relevance, recommended treatment, human decision, and a learning loop." />
+              </button>
+              <p class="visual-caption">Select the infographic to view it at full size.</p>
+              <div style="display:none"><svg width="100%" viewBox="0 0 520 300" fill="none" aria-label="Adaptive Intelligence decision interface">
+                <defs>
+                  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#0D2D57" flood-opacity="0.08"/>
+                  </filter>
+                </defs>
+
+                <rect x="8" y="10" width="504" height="280" rx="24" fill="#F8FAFC" stroke="#DCE4EE"/>
+
+                <text x="28" y="38" font-size="14" font-weight="700" fill="#0B1F3A" font-family="Arial">Incoming signals</text>
+                <text x="198" y="38" font-size="14" font-weight="700" fill="#0B1F3A" font-family="Arial">Decision context</text>
+                <text x="366" y="38" font-size="14" font-weight="700" fill="#0B1F3A" font-family="Arial">Treatment</text>
+
+                <g filter="url(#shadow)">
+                  <rect x="24" y="56" width="142" height="42" rx="12" fill="#FFFFFF" stroke="#DCE4EE"/>
+                  <circle cx="43" cy="77" r="7" fill="#2D63D8"/>
+                  <text x="58" y="73" font-size="11" font-weight="700" fill="#0B1F3A" font-family="Arial">Customer activity</text>
+                  <text x="58" y="87" font-size="9.5" fill="#697386" font-family="Arial">Engagement spike</text>
+
+                  <rect x="24" y="106" width="142" height="42" rx="12" fill="#FFFFFF" stroke="#DCE4EE"/>
+                  <circle cx="43" cy="127" r="7" fill="#C97D16"/>
+                  <text x="58" y="123" font-size="11" font-weight="700" fill="#0B1F3A" font-family="Arial">Supply exposure</text>
+                  <text x="58" y="137" font-size="9.5" fill="#697386" font-family="Arial">Potential disruption</text>
+
+                  <rect x="24" y="156" width="142" height="42" rx="12" fill="#FFFFFF" stroke="#DCE4EE"/>
+                  <circle cx="43" cy="177" r="7" fill="#7138B8"/>
+                  <text x="58" y="173" font-size="11" font-weight="700" fill="#0B1F3A" font-family="Arial">Product relationship</text>
+                  <text x="58" y="187" font-size="9.5" fill="#697386" font-family="Arial">Relevant alternative</text>
+
+                  <rect x="24" y="206" width="142" height="42" rx="12" fill="#FFFFFF" stroke="#DCE4EE"/>
+                  <circle cx="43" cy="227" r="7" fill="#0C8A83"/>
+                  <text x="58" y="223" font-size="11" font-weight="700" fill="#0B1F3A" font-family="Arial">Opportunity signal</text>
+                  <text x="58" y="237" font-size="9.5" fill="#697386" font-family="Arial">No recent movement</text>
+                </g>
+
+                <path d="M166 77H188M166 127H188M166 177H188M166 227H188" stroke="#A8B4C4" stroke-width="2.4" stroke-linecap="round"/>
+                <path d="M181 70L189 77L181 84M181 120L189 127L181 134M181 170L189 177L181 184M181 220L189 227L181 234"
+                      stroke="#A8B4C4" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+
+                <g filter="url(#shadow)">
+                  <rect x="194" y="56" width="148" height="192" rx="18" fill="#FFFFFF" stroke="#DCE4EE"/>
+                  <rect x="208" y="70" width="120" height="28" rx="9" fill="#EEF3FF"/>
+                  <text x="220" y="88" font-size="10.5" font-weight="700" fill="#2D63D8" font-family="Arial">Role: Account lead</text>
+
+                  <rect x="208" y="106" width="120" height="28" rx="9" fill="#EAF7F5"/>
+                  <text x="220" y="124" font-size="10.5" font-weight="700" fill="#0C8A83" font-family="Arial">Objective: Protect growth</text>
+
+                  <rect x="208" y="142" width="120" height="28" rx="9" fill="#F2ECFA"/>
+                  <text x="220" y="160" font-size="10.5" font-weight="700" fill="#7138B8" font-family="Arial">Customer: Strategic</text>
+
+                  <rect x="208" y="178" width="120" height="28" rx="9" fill="#FFF4E6"/>
+                  <text x="220" y="196" font-size="10.5" font-weight="700" fill="#C97D16" font-family="Arial">Urgency: 14 days</text>
+
+                  <text x="208" y="228" font-size="10" fill="#697386" font-family="Arial">Context changes the treatment</text>
+                </g>
+
+                <path d="M342 152H360" stroke="#A8B4C4" stroke-width="2.6" stroke-linecap="round"/>
+                <path d="M352 144L361 152L352 160" stroke="#A8B4C4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+
+                <g filter="url(#shadow)">
+                  <rect x="366" y="56" width="130" height="44" rx="12" fill="#E9F8F1" stroke="#BFE7D3"/>
+                  <circle cx="386" cy="78" r="9" fill="#198754"/>
+                  <path d="M382 78L385 81L391 74" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <text x="402" y="73" font-size="11" font-weight="700" fill="#14532D" font-family="Arial">Act now</text>
+                  <text x="402" y="87" font-size="9.5" fill="#4B6B57" font-family="Arial">Owner + next action</text>
+
+                  <rect x="366" y="108" width="130" height="44" rx="12" fill="#FFF4E6" stroke="#F0D5A8"/>
+                  <circle cx="386" cy="130" r="9" fill="#C97D16"/>
+                  <text x="383" y="134" font-size="11" font-weight="700" fill="#FFFFFF" font-family="Arial">?</text>
+                  <text x="402" y="125" font-size="11" font-weight="700" fill="#7A4A0B" font-family="Arial">Review</text>
+                  <text x="402" y="139" font-size="9.5" fill="#7A684E" font-family="Arial">Needs human context</text>
+
+                  <rect x="366" y="160" width="130" height="44" rx="12" fill="#EEF3FF" stroke="#CCD9F6"/>
+                  <circle cx="386" cy="182" r="9" fill="#2D63D8"/>
+                  <path d="M386 176V182L390 185" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+                  <text x="402" y="177" font-size="11" font-weight="700" fill="#1E3A8A" font-family="Arial">Monitor</text>
+                  <text x="402" y="191" font-size="9.5" fill="#62739A" font-family="Arial">Watch for change</text>
+
+                  <rect x="366" y="212" width="130" height="44" rx="12" fill="#F1F3F6" stroke="#D8DDE5"/>
+                  <circle cx="386" cy="234" r="9" fill="#7B8494"/>
+                  <path d="M381 234H391" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
+                  <text x="402" y="229" font-size="11" font-weight="700" fill="#374151" font-family="Arial">Suppress</text>
+                  <text x="402" y="243" font-size="9.5" fill="#717A89" font-family="Arial">No action required</text>
+                </g>
+
+                <text x="260" y="278" text-anchor="middle" font-size="10.5" fill="#697386" font-family="Arial">
+                  Relevance is determined by role, objective, context, urgency, and consequence
+                </text>
+              </svg></div>
+            </div>
+
+            <div class="exploration-body">
+              <div class="exploration-number">Exploration 02</div>
+              <h3>When more intelligence creates more complexity.</h3>
+              <p class="summary">
+                Additional information can improve decisions. It can also transfer the burden of
+                interpretation from the organization to the user. The product becomes
+                comprehensive while the user becomes overwhelmed.
+              </p>
+
+              <div class="lens-grid">
+                <div class="lens">
+                  <strong>Common failure pattern</strong>
+                  <p>Generating more signals without deciding what deserves attention now.</p>
+                </div>
+                <div class="lens">
+                  <strong>Difficult trade-off</strong>
+                  <p>Broad coverage versus relevance, focus, and explainable prioritization.</p>
+                </div>
+                <div class="lens">
+                  <strong>Diagnostic question</strong>
+                  <p>Are we helping the user decide—or simply organizing more information?</p>
+                </div>
+              </div>
+
+              <p class="quote">
+                Adaptive Intelligence asks what should change according to the user, objective,
+                situation, available context, and decision being made.
+              </p>
+            </div>
+          </article>
+
+          <article class="card exploration-card">
+            <div class="exploration-visual">
+              <svg width="100%" viewBox="0 0 320 220" fill="none" aria-label="Product expanding into enterprise capability diagram">
+                <rect x="32" y="65" width="92" height="92" rx="22" fill="#E9F0FF" stroke="#2D63D8" stroke-width="3"/>
+                <rect x="17" y="50" width="122" height="122" rx="28" stroke="#2D63D8" stroke-width="2" stroke-dasharray="7 7"/>
+                <path d="M144 111H192" stroke="#98A7BA" stroke-width="3" stroke-linecap="round"/>
+                <path d="M182 103L192 111L182 119" stroke="#98A7BA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="192" y="34" width="110" height="154" rx="28" fill="#EEF8F7" stroke="#0C8A83" stroke-width="3"/>
+                <path d="M216 72H278M216 110H278M216 148H278" stroke="#0C8A83" stroke-width="3" stroke-linecap="round"/>
+                <circle cx="232" cy="72" r="8" fill="#0C8A83"/>
+                <circle cx="260" cy="110" r="8" fill="#0C8A83"/>
+                <circle cx="244" cy="148" r="8" fill="#0C8A83"/>
+                <text x="78" y="198" text-anchor="middle" font-size="13" fill="#33445F" font-family="Arial">Product boundary</text>
+                <text x="247" y="208" text-anchor="middle" font-size="13" fill="#33445F" font-family="Arial">Enterprise capability</text>
+              </svg>
+            </div>
+
+            <div class="exploration-body">
+              <div class="exploration-number">Exploration 03</div>
+              <h3>From proven products to enterprise transformation.</h3>
+              <p class="summary">
+                A product can have sustained users, measurable value, executive support, and a
+                credible roadmap while the broader business problem remains fragmented across
+                systems, functions, ownership boundaries, and investment decisions.
+              </p>
+
+              <div class="lens-grid">
+                <div class="lens">
+                  <strong>Common failure pattern</strong>
+                  <p>Attempting to scale transformation by scaling the product alone.</p>
+                </div>
+                <div class="lens">
+                  <strong>Difficult trade-off</strong>
+                  <p>Enterprise consistency versus local relevance and distributed expertise.</p>
+                </div>
+                <div class="lens">
+                  <strong>Diagnostic question</strong>
+                  <p>Is the organization scaling software—or changing how the enterprise operates?</p>
+                </div>
+              </div>
+
+              <p class="quote">
+                Product scale and enterprise transformation are related, but they are not the same
+                organizational achievement.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="evidence">
+      <div class="container">
+        <div class="section-intro">
+          <p class="eyebrow">Evidence from practice</p>
+          <h2>Built, scaled, and measured in real workflows.</h2>
+          <p>
+            These examples are anonymized and organized around transferable problems rather than
+            internal product names.
+          </p>
+        </div>
+
+        <div class="evidence-grid">
+          <article class="card evidence-card">
+            <div class="evidence-top">
+              <div class="icon-badge">
+                <svg width="25" height="25" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M4 12H9L12 7L15 12H20M4 18H20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div>
+                <p class="card-kicker">Workflow-based intelligence</p>
+                <h3>Turning domain knowledge into commercial action</h3>
+                <p>
+                  Scientific workflows, applications, and product relationships were structured
+                  into usable intelligence connected to demand generation and commercial processes.
+                </p>
+              </div>
+            </div>
+
+            <div class="metric-row">
+              <div class="metric"><strong>160K+</strong><span>products mapped</span></div>
+              <div class="metric"><strong>650</strong><span>applications connected</span></div>
+              <div class="metric"><strong>700K+</strong><span>marketing leads enriched</span></div>
+              <div class="metric"><strong>$25M+</strong><span>incremental revenue reported by supported teams</span></div>
+            </div>
+
+            <p class="evidence-note">
+              Transferable implication: domain expertise becomes commercially valuable when it is
+              structured into intelligence that enters a real workflow.
+            </p>
+          </article>
+
+          <article class="card evidence-card">
+            <div class="evidence-top">
+              <div class="icon-badge">
+                <svg width="25" height="25" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.8"/>
+                  <path d="M4 12H20M12 4C14.5 6.3 15.7 9 15.7 12C15.7 15 14.5 17.7 12 20M12 4C9.5 6.3 8.3 9 8.3 12C8.3 15 9.5 17.7 12 20" stroke="currentColor" stroke-width="1.8"/>
+                </svg>
+              </div>
+              <div>
+                <p class="card-kicker">Enterprise decision intelligence</p>
+                <h3>Connecting fragmented signals to commercial workflows</h3>
+                <p>
+                  CRM, ERP, market, supply-chain, operational, and digital-engagement signals were
+                  connected to opportunity identification, customer engagement, prioritization,
+                  forecasting, and workflow action.
+                </p>
+              </div>
+            </div>
+
+            <div class="metric-row">
+              <div class="metric"><strong>2,500+</strong><span>global users</span></div>
+              <div class="metric"><strong>4</strong><span>major global regions</span></div>
+              <div class="metric"><strong>~€300M</strong><span>tracked cumulative commercial impact since 2024</span></div>
+              <div class="metric"><strong>2024</strong><span>Merck Innovation Powered by Data &amp; Digital Award</span></div>
+            </div>
+
+            <p class="evidence-note">
+              Transferable implication: integration creates access; workflow relevance, adoption,
+              prioritization, and action determine whether integrated intelligence produces value.
+            </p>
+          </article>
+
+          <article class="card evidence-card">
+            <div class="evidence-top">
+              <div class="icon-badge">
+                <svg width="25" height="25" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M5 7H19V17H5V7Z" stroke="currentColor" stroke-width="1.8"/>
+                  <path d="M8 11H16M8 14H13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div>
+                <p class="card-kicker">Operational intelligence</p>
+                <h3>Making visibility actionable</h3>
+                <p>
+                  Digital products connected operational signals with customer exposure, account
+                  context, workflow responsibility, and measurable action.
+                </p>
+              </div>
+            </div>
+
+            <div class="metric-row">
+              <div class="metric"><strong>€9M</strong><span>cumulative license savings and productivity gains</span></div>
+              <div class="metric"><strong>2024–25</strong><span>measured delivery period</span></div>
+            </div>
+
+            <p class="evidence-note">
+              Transferable implication: operational intelligence creates greater value when it
+              clarifies who is affected, who should respond, and what action is possible.
+            </p>
+          </article>
+
+          <article class="card evidence-card">
+            <div class="evidence-top">
+              <div class="icon-badge">
+                <svg width="25" height="25" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M4 8H20M4 16H20M8 4V20M16 4V20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div>
+                <p class="card-kicker">Competitive intelligence</p>
+                <h3>One intelligence base, multiple value paths</h3>
+                <p>
+                  Product cross-reference intelligence supported both commercial tender response
+                  and internal procurement decisions.
+                </p>
+              </div>
+            </div>
+
+            <div class="metric-row">
+              <div class="metric"><strong>$115M</strong><span>tender-driven commercial growth supported</span></div>
+              <div class="metric"><strong>~$2M</strong><span>internal procurement cost savings</span></div>
+            </div>
+
+            <p class="evidence-note">
+              Transferable implication: the same structured intelligence can create different
+              forms of value when connected to different decisions and workflows.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="evolution">
+      <div class="container evolution">
+        <div>
+          <p class="eyebrow">Why I see the problem this way</p>
+          <h2>A consistent question across an evolving career.</h2>
+
+          <div class="about-panel">
+            <p>
+              My path into digital products did not begin with a plan to become a product leader.
+              It began with a recurring discomfort: organizations were investing in data,
+              reporting, and analytics, yet many important decisions still happened outside those
+              systems.
+            </p>
+
+            <p><strong>The information existed. The connection to the decision did not.</strong></p>
+
+            <p>
+              Today, I serve as a Senior Product Owner responsible for strategy, roadmaps,
+              prioritization, and value delivery across a global portfolio of commercial
+              analytics, data, and digital products.
+            </p>
+          </div>
+        </div>
+
+        <div class="evolution-list">
+          <div class="evolution-step">
+            <div class="step-dot">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M10 3H14V8L17 13C18.7 15.9 16.6 20 13.2 20H10.8C7.4 20 5.3 15.9 7 13L10 8V3Z" stroke="currentColor" stroke-width="1.8"/>
+              </svg>
+            </div>
+            <div><h3>Science</h3><p>Systems, dependencies, evidence, cause and effect, and reproducibility.</p></div>
+          </div>
+
+          <div class="evolution-step">
+            <div class="step-dot">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M9 18H15M10 21H14M8 14C6.8 13 6 11.5 6 9.8C6 6.6 8.7 4 12 4C15.3 4 18 6.6 18 9.8C18 11.5 17.2 13 16 14C15.3 14.6 15 15.2 15 16H9C9 15.2 8.7 14.6 8 14Z" stroke="currentColor" stroke-width="1.8"/>
+              </svg>
+            </div>
+            <div><h3>Commercial intelligence</h3><p>Structuring customer, product, market, and scientific relationships into usable intelligence.</p></div>
+          </div>
+
+          <div class="evolution-step">
+            <div class="step-dot">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M4 5H20V19H4V5Z" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M8 9H16M8 13H14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div><h3>Digital products</h3><p>Making intelligence repeatable, governed, accessible, and scalable.</p></div>
+          </div>
+
+          <div class="evolution-step">
+            <div class="step-dot">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M4 7H10L12 10H20V18H4V7Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                <path d="M8 14H16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div><h3>Workflow integration</h3><p>Bringing insights into the systems where people plan, prioritize, and act.</p></div>
+          </div>
+
+          <div class="evolution-step">
+            <div class="step-dot">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle cx="9" cy="9" r="3" stroke="currentColor" stroke-width="1.8"/>
+                <circle cx="16" cy="10" r="2.5" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M4 20C4.7 16.2 7.1 14 10.5 14C13.9 14 16.3 16.2 17 20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div><h3>Portfolio responsibility</h3><p>Strategy, roadmaps, trade-offs, delivery, governance, adoption, and measurable value.</p></div>
+          </div>
+
+          <div class="evolution-step">
+            <div class="step-dot">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M8 7C8 5.3 9.3 4 11 4H13C14.7 4 16 5.3 16 7V8C17.7 8 19 9.3 19 11V13C19 14.7 17.7 16 16 16V17C16 18.7 14.7 20 13 20H11C9.3 20 8 18.7 8 17V16C6.3 16 5 14.7 5 13V11C5 9.3 6.3 8 8 8V7Z" stroke="currentColor" stroke-width="1.8"/>
+              </svg>
+            </div>
+            <div><h3>Applied AI</h3><p>Expanding scale, matching, harmonization, recommendations, prediction, and workflow support.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-intro">
+          <p class="eyebrow">Beyond the Lab</p>
+          <h2>The person behind the work.</h2>
+          <p>
+            Away from work, I am usually planning a motorcycle route, looking for a mountain
+            road, attempting to improve my golf swing, or traveling with my family.
+          </p>
+        </div>
+
+        <div class="beyond-grid" aria-label="Beyond work interests">
+          <div class="beyond-card">
+            <div class="beyond-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle cx="7" cy="17" r="3" stroke="currentColor" stroke-width="1.8"/>
+                <circle cx="17" cy="17" r="3" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M9 17H14L11 11H7M11 11L15 8M15 8H19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <strong>Motorcycle travel</strong>
+          </div>
+
+          <div class="beyond-card">
+            <div class="beyond-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M3 19L9 8L13 14L16 10L21 19H3Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <strong>Mountains and remote landscapes</strong>
+          </div>
+
+          <div class="beyond-card">
+            <div class="beyond-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle cx="7" cy="17" r="2.5" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M9 15L15 6M14 5L19 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <strong>Golf</strong>
+          </div>
+
+          <div class="beyond-card">
+            <div class="beyond-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.8"/>
+                <circle cx="16" cy="9" r="2.5" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M3 20C3.7 15.8 6.2 14 10 14C13.8 14 16.3 15.8 17 20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <path d="M15 15C17.8 15.2 19.4 16.8 20 19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <strong>Family travel</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="connect">
+      <div class="container">
+        <div class="connect-panel">
+          <div>
+            <p class="eyebrow">Continue the conversation</p>
+            <h2>Enterprise capability is expanding. The harder questions are what happens next.</h2>
+            <p>
+              Topics include commercial intelligence, enterprise digital products, data and AI
+              value realization, workflow-embedded decision support, adoption, operating models,
+              and the path from proven products to broader transformation.
+            </p>
+          </div>
+
+          <div class="connect-actions">
+            <a class="button button-primary" href="https://www.linkedin.com/in/rahul-garhwal" target="_blank" rel="noopener noreferrer">
+              LinkedIn
+            </a>
+            <a class="button button-secondary" href="mailto:rahul.garhwal@gmail.com">Email</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+  <div class="lightbox" id="infographic-lightbox" role="dialog" aria-modal="true" aria-label="Adaptive Intelligence infographic">
+    <div class="lightbox-dialog">
+      <button class="lightbox-close" type="button" aria-label="Close infographic">×</button>
+      <img src="adaptive-intelligence.png" alt="Adaptive Intelligence in Action infographic showing signals, interpretation, relevance, recommended treatment, human decision, and a learning loop." />
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <p>© <span id="year"></span> Rahul Garhwal Lab</p>
+      <div class="footer-links">
+        <a href="#questions">Questions</a>
+        <a href="#evidence">Evidence</a>
+        <a href="#connect">Connect</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menuButton = document.querySelector(".menu-button");
+    const navigation = document.querySelector(".nav-links");
+
+    menuButton.addEventListener("click", () => {
+      const isOpen = navigation.classList.toggle("open");
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    navigation.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navigation.classList.remove("open");
+        menuButton.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const infographicButton = document.querySelector(".infographic-button");
+    const lightbox = document.getElementById("infographic-lightbox");
+    const lightboxClose = document.querySelector(".lightbox-close");
+
+    const openLightbox = () => {
+      lightbox.classList.add("open");
+      document.body.style.overflow = "hidden";
+      lightboxClose.focus();
+    };
+
+    const closeLightbox = () => {
+      lightbox.classList.remove("open");
+      document.body.style.overflow = "";
+      infographicButton.focus();
+    };
+
+    infographicButton?.addEventListener("click", openLightbox);
+    lightboxClose?.addEventListener("click", closeLightbox);
+
+    lightbox?.addEventListener("click", (event) => {
+      if (event.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && lightbox.classList.contains("open")) {
+        closeLightbox();
+      }
+    });
+
+  </script>
+</body>
+</html>

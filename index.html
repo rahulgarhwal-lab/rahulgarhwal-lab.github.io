@@ -122,7 +122,7 @@
 
     main { overflow: clip; }
 
-    section { scroll-margin-top: 92px; }
+    section { scroll-margin-top: 112px; }
 
     .eyebrow {
       margin: 0 0 15px;
@@ -552,55 +552,154 @@
     .card p { margin: 0; color: var(--ink-soft); }
 
     .chain-shell {
-      padding: 34px;
+      padding: 38px;
       border-radius: var(--radius-xl);
       color: var(--white);
       background:
-        radial-gradient(circle at 15% 15%, rgba(255,255,255,0.12), transparent 18rem),
-        linear-gradient(135deg, rgba(13, 45, 87, 0.99), rgba(45, 99, 216, 0.95));
+        radial-gradient(circle at 14% 10%, rgba(255,255,255,0.12), transparent 19rem),
+        radial-gradient(circle at 90% 90%, rgba(113,56,184,0.18), transparent 25rem),
+        linear-gradient(135deg, rgba(13, 45, 87, 0.99), rgba(45, 99, 216, 0.96));
       box-shadow: 0 28px 70px rgba(13, 45, 87, 0.22);
     }
 
+    .chain-shell > h3 {
+      margin-bottom: 12px;
+      font-size: clamp(1.55rem, 2.5vw, 2rem);
+    }
+
     .chain-shell > p {
-      max-width: 800px;
+      max-width: 880px;
       margin: 0 0 30px;
       color: rgba(255,255,255,0.78);
     }
 
-    .chain-grid {
+    .path-phases {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 12px;
+      gap: 18px;
     }
 
-    .chain-item {
-      min-height: 176px;
-      padding: 18px;
-      border: 1px solid rgba(255,255,255,0.16);
-      border-radius: 18px;
-      background: rgba(255,255,255,0.08);
+    .path-phase {
+      position: relative;
+      min-width: 0;
+      padding: 24px 22px 22px;
+      border: 1px solid rgba(255,255,255,0.17);
+      border-radius: 20px;
+      background: rgba(255,255,255,0.075);
     }
 
-    .chain-icon {
-      width: 42px;
-      height: 42px;
+    .path-phase:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      top: 50%;
+      right: -17px;
+      z-index: 2;
       display: grid;
+      width: 16px;
+      height: 28px;
       place-items: center;
-      margin-bottom: 18px;
-      border-radius: 13px;
-      background: rgba(255,255,255,0.12);
-    }
-
-    .chain-item strong {
-      display: block;
-      margin-bottom: 6px;
-      font-size: 0.98rem;
-    }
-
-    .chain-item p {
-      margin: 0;
+      transform: translateY(-50%);
       color: rgba(255,255,255,0.72);
-      font-size: 0.89rem;
+      font-size: 1.2rem;
+      font-weight: 800;
+    }
+
+    .phase-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 24px;
+      color: rgba(255,255,255,0.72);
+      font-size: 0.76rem;
+      font-weight: 880;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .phase-label span {
+      display: grid;
+      width: 30px;
+      height: 30px;
+      place-items: center;
+      border-radius: 10px;
+      color: var(--white);
+      background: rgba(255,255,255,0.14);
+      letter-spacing: 0;
+    }
+
+    .path-stage {
+      min-height: 128px;
+    }
+
+    .stage-title {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 12px;
+      align-items: start;
+      margin-bottom: 8px;
+    }
+
+    .stage-number {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      border-radius: 11px;
+      color: var(--white);
+      background: rgba(255,255,255,0.13);
+      font-size: 0.74rem;
+      font-weight: 900;
+    }
+
+    .path-stage strong {
+      display: block;
+      padding-top: 4px;
+      font-size: 1rem;
+      line-height: 1.25;
+    }
+
+    .path-stage p {
+      margin: 0 0 0 46px;
+      color: rgba(255,255,255,0.72);
+      font-size: 0.88rem;
+      line-height: 1.55;
+    }
+
+    .stage-bridge {
+      position: relative;
+      height: 34px;
+      margin: 2px 0 12px 16px;
+      border-left: 1px solid rgba(255,255,255,0.28);
+    }
+
+    .stage-bridge::after {
+      content: "";
+      position: absolute;
+      left: -4px;
+      bottom: 0;
+      width: 7px;
+      height: 7px;
+      border-right: 1.5px solid rgba(255,255,255,0.7);
+      border-bottom: 1.5px solid rgba(255,255,255,0.7);
+      transform: rotate(45deg);
+    }
+
+    .path-note {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 28px 0 0;
+      color: rgba(255,255,255,0.88);
+      font-size: 0.92rem;
+      font-weight: 720;
+    }
+
+    .path-note::before {
+      content: "";
+      width: 46px;
+      height: 2px;
+      flex: 0 0 auto;
+      background: rgba(255,255,255,0.55);
     }
 
     .exploration-stack {
@@ -1011,8 +1110,12 @@
         height: 420px;
       }
 
-      .chain-grid {
+      .path-phases {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .path-phase::after {
+        display: none !important;
       }
 
       .exploration-card {
@@ -1101,7 +1204,7 @@
         display: none;
       }
 
-      .chain-grid,
+      .path-phases,
       .metric-row,
       .beyond-grid {
         grid-template-columns: 1fr;
@@ -1384,110 +1487,111 @@
           <p class="eyebrow">Working point of view</p>
           <h2>Capability is only the beginning.</h2>
           <p>
-            Enterprise discussions often emphasize the capability being built and the outcome
-            being targeted. The steps between them determine whether the expected value is ever
-            realized.
+            Enterprise discussions often jump from the capability being built to the outcome being
+            promised. The connections between them determine whether value is realized.
           </p>
         </div>
 
         <div class="chain-shell">
           <h3>The Capability-to-Value Path</h3>
           <p>
-            A weak connection at any point can prevent a technically sound capability from
-            becoming a practical or economic outcome.
+            A technically sound capability can still fail when any connection between objective,
+            decision, use, and outcome is weak.
           </p>
 
-          <div class="chain-grid">
-            <div class="chain-item">
-              <div class="chain-icon">
-                <svg width="23" height="23" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.8"/>
-                  <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/>
-                </svg>
-              </div>
-              <strong>Business objective</strong>
-              <p>What meaningful condition are we trying to change?</p>
-            </div>
+          <div class="path-phases">
+            <article class="path-phase">
+              <div class="phase-label"><span>01</span>Frame</div>
 
-            <div class="chain-item">
-              <div class="chain-icon">
-                <svg width="23" height="23" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M5 7H10M14 7H19M7.5 4.5V9.5M16.5 4.5V9.5M7 17H17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                  <circle cx="12" cy="17" r="3" stroke="currentColor" stroke-width="1.8"/>
-                </svg>
+              <div class="path-stage">
+                <div class="stage-title">
+                  <span class="stage-number">01</span>
+                  <strong>Business objective</strong>
+                </div>
+                <p>What business condition must change—and why does it matter?</p>
               </div>
-              <strong>Decision</strong>
-              <p>Which decision, action, or behavior must improve?</p>
-            </div>
 
-            <div class="chain-item">
-              <div class="chain-icon">
-                <svg width="23" height="23" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <ellipse cx="12" cy="5" rx="7" ry="3" stroke="currentColor" stroke-width="1.8"/>
-                  <path d="M5 5V12C5 13.7 8.1 15 12 15C15.9 15 19 13.7 19 12V5" stroke="currentColor" stroke-width="1.8"/>
-                  <path d="M5 12V19C5 20.7 8.1 22 12 22C15.9 22 19 20.7 19 19V12" stroke="currentColor" stroke-width="1.8"/>
-                </svg>
-              </div>
-              <strong>Data + context</strong>
-              <p>What evidence is required to understand the situation?</p>
-            </div>
+              <div class="stage-bridge" aria-hidden="true"></div>
 
-            <div class="chain-item">
-              <div class="chain-icon">
-                <svg width="23" height="23" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M9 18H15M10 21H14M8 14C6.8 13 6 11.5 6 9.8C6 6.6 8.7 4 12 4C15.3 4 18 6.6 18 9.8C18 11.5 17.2 13 16 14C15.3 14.6 15 15.2 15 16H9C9 15.2 8.7 14.6 8 14Z" stroke="currentColor" stroke-width="1.8"/>
-                </svg>
+              <div class="path-stage">
+                <div class="stage-title">
+                  <span class="stage-number">02</span>
+                  <strong>Decision</strong>
+                </div>
+                <p>Which consequential decision must improve?</p>
               </div>
-              <strong>Intelligence</strong>
-              <p>What can analytics, products, or AI interpret or recommend?</p>
-            </div>
+            </article>
 
-            <div class="chain-item">
-              <div class="chain-icon">
-                <svg width="23" height="23" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <circle cx="12" cy="8" r="3.5" stroke="currentColor" stroke-width="1.8"/>
-                  <path d="M5 20C5.7 15.8 8.2 14 12 14C15.8 14 18.3 15.8 19 20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                </svg>
-              </div>
-              <strong>Human judgment</strong>
-              <p>What context and accountability still require a person?</p>
-            </div>
+            <article class="path-phase">
+              <div class="phase-label"><span>02</span>Understand</div>
 
-            <div class="chain-item">
-              <div class="chain-icon">
-                <svg width="23" height="23" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M4 7H10L12 10H20V18H4V7Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-                  <path d="M8 14H16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                </svg>
+              <div class="path-stage">
+                <div class="stage-title">
+                  <span class="stage-number">03</span>
+                  <strong>Data + context</strong>
+                </div>
+                <p>What evidence is needed to understand the situation?</p>
               </div>
-              <strong>Workflow action</strong>
-              <p>Where and how will intelligence become part of the work?</p>
-            </div>
 
-            <div class="chain-item">
-              <div class="chain-icon">
-                <svg width="23" height="23" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <circle cx="9" cy="9" r="3" stroke="currentColor" stroke-width="1.8"/>
-                  <circle cx="16" cy="10" r="2.5" stroke="currentColor" stroke-width="1.8"/>
-                  <path d="M4 20C4.7 16.2 7.1 14 10.5 14C13.9 14 16.3 16.2 17 20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                  <path d="M15 15C17.8 15.2 19.4 16.8 20 19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                </svg>
-              </div>
-              <strong>Adoption</strong>
-              <p>What creates trust, ownership, repeated use, and changed behavior?</p>
-            </div>
+              <div class="stage-bridge" aria-hidden="true"></div>
 
-            <div class="chain-item">
-              <div class="chain-icon">
-                <svg width="23" height="23" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M5 19V13M10 19V9M15 19V6M20 19V3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                  <path d="M4 21H21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                </svg>
+              <div class="path-stage">
+                <div class="stage-title">
+                  <span class="stage-number">04</span>
+                  <strong>Intelligence</strong>
+                </div>
+                <p>What should analytics, products, or AI interpret, predict, or recommend?</p>
               </div>
-              <strong>Measurable value</strong>
-              <p>What evidence shows that something important improved?</p>
-            </div>
+            </article>
+
+            <article class="path-phase">
+              <div class="phase-label"><span>03</span>Act</div>
+
+              <div class="path-stage">
+                <div class="stage-title">
+                  <span class="stage-number">05</span>
+                  <strong>Human judgment</strong>
+                </div>
+                <p>What context, trade-off, or accountability still requires a person?</p>
+              </div>
+
+              <div class="stage-bridge" aria-hidden="true"></div>
+
+              <div class="path-stage">
+                <div class="stage-title">
+                  <span class="stage-number">06</span>
+                  <strong>Workflow action</strong>
+                </div>
+                <p>Where does the decision enter the work, and who acts?</p>
+              </div>
+            </article>
+
+            <article class="path-phase">
+              <div class="phase-label"><span>04</span>Realize</div>
+
+              <div class="path-stage">
+                <div class="stage-title">
+                  <span class="stage-number">07</span>
+                  <strong>Adoption</strong>
+                </div>
+                <p>What creates trust, ownership, repeated use, and changed behavior?</p>
+              </div>
+
+              <div class="stage-bridge" aria-hidden="true"></div>
+
+              <div class="path-stage">
+                <div class="stage-title">
+                  <span class="stage-number">08</span>
+                  <strong>Measurable value</strong>
+                </div>
+                <p>What evidence shows that the targeted condition improved?</p>
+              </div>
+            </article>
           </div>
+
+          <p class="path-note">
+            The weakest connection—not the most advanced technology—often determines the outcome.
+          </p>
         </div>
       </div>
     </section>

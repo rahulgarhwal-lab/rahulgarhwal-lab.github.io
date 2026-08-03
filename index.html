@@ -1054,95 +1054,202 @@
       text-transform: uppercase;
     }
 
-    .evolution {
+    .evolution-intro {
+      max-width: 850px;
+      margin-bottom: 34px;
+    }
+
+    .evolution-intro h2 {
+      max-width: 820px;
+    }
+
+    .career-question {
       display: grid;
-      grid-template-columns: 0.76fr 1.24fr;
-      gap: 44px;
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+      gap: 34px;
+      align-items: center;
+      margin-bottom: 34px;
+      padding: 32px 34px;
+      border-radius: var(--radius-xl);
+      color: var(--white);
+      background:
+        radial-gradient(circle at 88% 18%, rgba(255,255,255,0.10), transparent 17rem),
+        linear-gradient(135deg, var(--navy), #254f9f);
+      box-shadow: 0 24px 60px rgba(13,45,87,0.19);
+    }
+
+    .career-question .card-kicker {
+      color: rgba(255,255,255,0.68);
+    }
+
+    .career-question h3 {
+      margin: 0;
+      color: var(--white);
+      font-size: clamp(1.7rem, 3vw, 2.5rem);
+      line-height: 1.05;
+    }
+
+    .career-question p:last-child {
+      margin: 0;
+      color: rgba(255,255,255,0.78);
+      font-size: 1rem;
+      line-height: 1.68;
+    }
+
+    .career-track {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+
+    .career-track::before {
+      content: "";
+      position: absolute;
+      top: 28px;
+      left: 7%;
+      right: 7%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--blue), var(--teal), var(--purple), var(--gold));
+      opacity: 0.34;
+    }
+
+    .career-stage {
+      position: relative;
+      z-index: 1;
+      min-width: 0;
+      padding-top: 52px;
+    }
+
+    .career-stage::before {
+      content: attr(data-step);
+      position: absolute;
+      top: 10px;
+      left: 0;
+      display: grid;
+      width: 38px;
+      height: 38px;
+      place-items: center;
+      border: 4px solid var(--surface);
+      border-radius: 50%;
+      color: var(--white);
+      background: var(--blue);
+      font-size: 0.72rem;
+      font-weight: 900;
+      box-shadow: 0 8px 18px rgba(13,45,87,0.14);
+    }
+
+    .career-stage:nth-child(2)::before,
+    .career-stage:nth-child(3)::before {
+      background: var(--teal);
+    }
+
+    .career-stage:nth-child(4)::before,
+    .career-stage:nth-child(5)::before {
+      background: var(--purple);
+    }
+
+    .career-stage:nth-child(6)::before {
+      background: var(--gold);
+    }
+
+    .career-stage h3 {
+      margin-bottom: 8px;
+      font-size: 1.02rem;
+      line-height: 1.2;
+    }
+
+    .career-stage p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.86rem;
+      line-height: 1.52;
+    }
+
+    .current-scope {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 18px 20px;
+      border: 1px solid rgba(45,99,216,0.15);
+      border-radius: 15px;
+      color: var(--ink-soft);
+      background: rgba(45,99,216,0.05);
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+
+    .current-scope::before {
+      content: "";
+      width: 34px;
+      height: 3px;
+      flex: 0 0 auto;
+      border-radius: 999px;
+      background: var(--blue);
+    }
+
+    .current-scope strong {
+      color: var(--ink);
+    }
+
+    .personal-wrap {
+      display: grid;
+      grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+      gap: 54px;
       align-items: start;
     }
 
-    .about-panel {
-      padding: 34px;
-      border-radius: var(--radius-xl);
-      background: linear-gradient(145deg, #ffffff, #f2f5fa);
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
+    .personal-intro {
+      position: sticky;
+      top: 120px;
     }
 
-    .about-panel p { color: var(--ink-soft); }
-
-    .about-panel strong { color: var(--ink); }
-
-    .evolution-list {
-      display: grid;
-      gap: 14px;
-    }
-
-    .evolution-step {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 16px;
-      padding: 19px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .evolution-step:last-child { border-bottom: 0; }
-
-    .step-dot {
-      width: 46px;
-      height: 46px;
-      display: grid;
-      place-items: center;
-      border-radius: 14px;
-      color: var(--blue);
-      background: linear-gradient(135deg, rgba(45,99,216,0.12), rgba(12,138,131,0.12));
-    }
-
-    .evolution-step h3 {
-      margin-bottom: 6px;
-      font-size: 1.14rem;
-    }
-
-    .evolution-step p {
-      margin: 0;
+    .personal-intro p:last-child {
+      max-width: 470px;
       color: var(--ink-soft);
+      font-size: 1.02rem;
+      line-height: 1.7;
     }
 
     .beyond-grid {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 14px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
     }
 
     .beyond-card {
-      min-height: 175px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 20px;
+      position: relative;
+      min-height: 210px;
+      padding: 24px;
+      overflow: hidden;
+      border: 1px solid var(--line);
       border-radius: 20px;
-      color: var(--white);
-      background:
-        linear-gradient(180deg, rgba(13,45,87,0.04), rgba(13,45,87,0.9)),
-        linear-gradient(135deg, var(--blue), var(--purple));
+      background: linear-gradient(145deg, #ffffff, #f3f6fb);
+      box-shadow: var(--shadow);
     }
 
-    .beyond-card:nth-child(2) {
-      background:
-        linear-gradient(180deg, rgba(13,45,87,0.04), rgba(13,45,87,0.9)),
-        linear-gradient(135deg, var(--teal), var(--navy));
+    .beyond-card::after {
+      content: "";
+      position: absolute;
+      right: -54px;
+      bottom: -62px;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: rgba(45,99,216,0.08);
     }
 
-    .beyond-card:nth-child(3) {
-      background:
-        linear-gradient(180deg, rgba(13,45,87,0.04), rgba(13,45,87,0.9)),
-        linear-gradient(135deg, var(--gold), var(--purple));
+    .beyond-card:nth-child(2)::after {
+      background: rgba(12,138,131,0.09);
     }
 
-    .beyond-card:nth-child(4) {
-      background:
-        linear-gradient(180deg, rgba(13,45,87,0.04), rgba(13,45,87,0.9)),
-        linear-gradient(135deg, var(--purple), var(--blue));
+    .beyond-card:nth-child(3)::after {
+      background: rgba(201,125,22,0.09);
+    }
+
+    .beyond-card:nth-child(4)::after {
+      background: rgba(113,56,184,0.09);
     }
 
     .beyond-icon {
@@ -1150,10 +1257,47 @@
       height: 48px;
       display: grid;
       place-items: center;
-      margin-bottom: auto;
+      margin-bottom: 26px;
       border-radius: 15px;
-      background: rgba(255,255,255,0.14);
-      backdrop-filter: blur(8px);
+      color: var(--blue);
+      background: rgba(45,99,216,0.09);
+    }
+
+    .beyond-card:nth-child(2) .beyond-icon {
+      color: var(--teal);
+      background: rgba(12,138,131,0.10);
+    }
+
+    .beyond-card:nth-child(3) .beyond-icon {
+      color: var(--gold);
+      background: rgba(201,125,22,0.10);
+    }
+
+    .beyond-card:nth-child(4) .beyond-icon {
+      color: var(--purple);
+      background: rgba(113,56,184,0.10);
+    }
+
+    .beyond-card .card-kicker {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 7px;
+    }
+
+    .beyond-card h3 {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 10px;
+      font-size: 1.22rem;
+    }
+
+    .beyond-card p {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.55;
     }
 
     .connect-panel {
@@ -1259,8 +1403,20 @@
         grid-template-columns: 1fr;
       }
 
-      .evolution {
+      .career-track {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .career-track::before {
+        display: none;
+      }
+
+      .personal-wrap {
         grid-template-columns: 1fr;
+      }
+
+      .personal-intro {
+        position: static;
       }
 
       .beyond-grid {
@@ -1322,7 +1478,7 @@
       .chain-shell,
       .exploration-card,
       .connect-panel,
-      .about-panel {
+      .career-question {
         padding: 23px;
         border-radius: 20px;
       }
@@ -1336,8 +1492,14 @@
       .path-phases,
       .proof-points,
       .proof-points.two,
+      .career-question,
+      .career-track,
       .beyond-grid {
         grid-template-columns: 1fr;
+      }
+
+      .career-stage {
+        padding-top: 48px;
       }
 
       .footer-wrap {
@@ -2039,104 +2201,80 @@
     </section>
 
     <section class="section section-soft" id="evolution">
-      <div class="container evolution">
-        <div>
+      <div class="container">
+        <div class="evolution-intro">
           <p class="eyebrow">Why I see the problem this way</p>
-          <h2>A consistent question across an evolving career.</h2>
-
-          <div class="about-panel">
-            <p>
-              My path into digital products did not begin with a plan to become a product leader.
-              It began with a recurring discomfort: organizations were investing in data,
-              reporting, and analytics, yet many important decisions still happened outside those
-              systems.
-            </p>
-
-            <p><strong>The information existed. The connection to the decision did not.</strong></p>
-
-            <p>
-              Today, I serve as a Senior Product Owner responsible for strategy, roadmaps,
-              prioritization, and value delivery across a global portfolio of commercial
-              analytics, data, and digital products.
-            </p>
-          </div>
+          <h2>One question, viewed through an expanding field of responsibility.</h2>
+          <p>
+            The roles, tools, and scale changed. The recurring problem did not: how to connect
+            information to a consequential decision and make the result usable in practice.
+          </p>
         </div>
 
-        <div class="evolution-list">
-          <div class="evolution-step">
-            <div class="step-dot">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M10 3H14V8L17 13C18.7 15.9 16.6 20 13.2 20H10.8C7.4 20 5.3 15.9 7 13L10 8V3Z" stroke="currentColor" stroke-width="1.8"/>
-              </svg>
-            </div>
-            <div><h3>Science</h3><p>Systems, dependencies, evidence, cause and effect, and reproducibility.</p></div>
+        <div class="career-question">
+          <div>
+            <p class="card-kicker">The recurring question</p>
+            <h3>The information existed. The connection to the decision did not.</h3>
           </div>
-
-          <div class="evolution-step">
-            <div class="step-dot">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M9 18H15M10 21H14M8 14C6.8 13 6 11.5 6 9.8C6 6.6 8.7 4 12 4C15.3 4 18 6.6 18 9.8C18 11.5 17.2 13 16 14C15.3 14.6 15 15.2 15 16H9C9 15.2 8.7 14.6 8 14Z" stroke="currentColor" stroke-width="1.8"/>
-              </svg>
-            </div>
-            <div><h3>Commercial intelligence</h3><p>Structuring customer, product, market, and scientific relationships into usable intelligence.</p></div>
-          </div>
-
-          <div class="evolution-step">
-            <div class="step-dot">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M4 5H20V19H4V5Z" stroke="currentColor" stroke-width="1.8"/>
-                <path d="M8 9H16M8 13H14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <div><h3>Digital products</h3><p>Making intelligence repeatable, governed, accessible, and scalable.</p></div>
-          </div>
-
-          <div class="evolution-step">
-            <div class="step-dot">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M4 7H10L12 10H20V18H4V7Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-                <path d="M8 14H16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <div><h3>Workflow integration</h3><p>Bringing insights into the systems where people plan, prioritize, and act.</p></div>
-          </div>
-
-          <div class="evolution-step">
-            <div class="step-dot">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <circle cx="9" cy="9" r="3" stroke="currentColor" stroke-width="1.8"/>
-                <circle cx="16" cy="10" r="2.5" stroke="currentColor" stroke-width="1.8"/>
-                <path d="M4 20C4.7 16.2 7.1 14 10.5 14C13.9 14 16.3 16.2 17 20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <div><h3>Portfolio responsibility</h3><p>Strategy, roadmaps, trade-offs, delivery, governance, adoption, and measurable value.</p></div>
-          </div>
-
-          <div class="evolution-step">
-            <div class="step-dot">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M8 7C8 5.3 9.3 4 11 4H13C14.7 4 16 5.3 16 7V8C17.7 8 19 9.3 19 11V13C19 14.7 17.7 16 16 16V17C16 18.7 14.7 20 13 20H11C9.3 20 8 18.7 8 17V16C6.3 16 5 14.7 5 13V11C5 9.3 6.3 8 8 8V7Z" stroke="currentColor" stroke-width="1.8"/>
-              </svg>
-            </div>
-            <div><h3>Applied AI</h3><p>Expanding scale, matching, harmonization, recommendations, prediction, and workflow support.</p></div>
-          </div>
+          <p>
+            My path into digital products began with that tension. Each stage added a new dimension:
+            understanding the system, structuring intelligence, making it repeatable, placing it in
+            the workflow, owning the portfolio, and increasing its scale with AI.
+          </p>
         </div>
+
+        <div class="career-track" aria-label="Career evolution">
+          <article class="career-stage" data-step="01">
+            <h3>Science</h3>
+            <p>Understand systems, evidence, dependencies, and cause and effect.</p>
+          </article>
+
+          <article class="career-stage" data-step="02">
+            <h3>Commercial intelligence</h3>
+            <p>Structure customer, product, market, and scientific relationships.</p>
+          </article>
+
+          <article class="career-stage" data-step="03">
+            <h3>Digital products</h3>
+            <p>Make intelligence repeatable, accessible, governed, and scalable.</p>
+          </article>
+
+          <article class="career-stage" data-step="04">
+            <h3>Workflow integration</h3>
+            <p>Place intelligence where people plan, decide, and act.</p>
+          </article>
+
+          <article class="career-stage" data-step="05">
+            <h3>Portfolio responsibility</h3>
+            <p>Connect strategy, trade-offs, delivery, adoption, and measurable value.</p>
+          </article>
+
+          <article class="career-stage" data-step="06">
+            <h3>Applied AI</h3>
+            <p>Increase the scale and speed of interpretation while preserving judgment.</p>
+          </article>
+        </div>
+
+        <p class="current-scope">
+          <strong>Today:</strong> I apply this perspective across a global portfolio of commercial
+          analytics, data, and digital products.
+        </p>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container">
-        <div class="section-intro">
+    <section class="section" id="beyond">
+      <div class="container personal-wrap">
+        <div class="personal-intro">
           <p class="eyebrow">Beyond the Lab</p>
           <h2>The person behind the work.</h2>
           <p>
-            Away from work, I am usually planning a motorcycle route, looking for a mountain
-            road, attempting to improve my golf swing, or traveling with my family.
+            Away from work, I prefer experiences with movement, distance, and a little uncertainty—
+            motorcycle routes, mountain roads, golf, and travel with my family.
           </p>
         </div>
 
         <div class="beyond-grid" aria-label="Beyond work interests">
-          <div class="beyond-card">
+          <article class="beyond-card">
             <div class="beyond-icon">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <circle cx="7" cy="17" r="3" stroke="currentColor" stroke-width="1.8"/>
@@ -2144,29 +2282,35 @@
                 <path d="M9 17H14L11 11H7M11 11L15 8M15 8H19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
-            <strong>Motorcycle travel</strong>
-          </div>
+            
+            <h3>Motorcycle travel</h3>
+            <p>Long routes, mountain roads, and the satisfaction of continuing forward.</p>
+          </article>
 
-          <div class="beyond-card">
+          <article class="beyond-card">
             <div class="beyond-icon">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M3 19L9 8L13 14L16 10L21 19H3Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
               </svg>
             </div>
-            <strong>Mountains and remote landscapes</strong>
-          </div>
+            
+            <h3>Remote landscapes</h3>
+            <p>Places with distance, quiet, and enough space to notice what usually gets missed.</p>
+          </article>
 
-          <div class="beyond-card">
+          <article class="beyond-card">
             <div class="beyond-icon">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <circle cx="7" cy="17" r="2.5" stroke="currentColor" stroke-width="1.8"/>
                 <path d="M9 15L15 6M14 5L19 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
               </svg>
             </div>
-            <strong>Golf</strong>
-          </div>
+            
+            <h3>Golf</h3>
+            <p>A humbling pursuit of one cleaner swing—and an excellent reminder that progress is rarely linear.</p>
+          </article>
 
-          <div class="beyond-card">
+          <article class="beyond-card">
             <div class="beyond-icon">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.8"/>
@@ -2175,8 +2319,10 @@
                 <path d="M15 15C17.8 15.2 19.4 16.8 20 19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
               </svg>
             </div>
-            <strong>Family travel</strong>
-          </div>
+            
+            <h3>Family travel</h3>
+            <p>Trips shaped by curiosity, flexibility, and what my family will actually enjoy.</p>
+          </article>
         </div>
       </div>
     </section>

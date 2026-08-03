@@ -775,40 +775,94 @@
     }
 
 
-    .exploration-feature {
-      grid-template-columns: 1fr;
-    }
-
     .infographic-frame {
-      display: block;
-      min-height: auto;
-      padding: 0;
+      min-height: 260px;
+      padding: 18px;
       overflow: hidden;
-      background: #ffffff;
     }
 
     .infographic-button {
+      position: relative;
       display: block;
       width: 100%;
+      min-height: 224px;
       padding: 0;
-      border: 0;
+      overflow: hidden;
+      border: 1px solid rgba(45, 99, 216, 0.16);
+      border-radius: 17px;
       background: #ffffff;
+      box-shadow: 0 14px 34px rgba(13, 45, 87, 0.09);
       cursor: zoom-in;
     }
 
     .infographic-button img {
+      position: absolute;
+      inset: 0;
       width: 100%;
-      height: auto;
+      height: 100%;
       display: block;
+      object-fit: cover;
+      object-position: center top;
+      opacity: 0.94;
+      transform: scale(1.08);
+      transform-origin: top center;
     }
 
-    .visual-caption {
-      margin: 0;
-      padding: 10px 16px 14px;
-      color: var(--muted);
-      font-size: 0.82rem;
-      text-align: center;
-      background: #ffffff;
+    .infographic-button::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.02) 20%, rgba(255,255,255,0.96) 88%),
+        linear-gradient(135deg, rgba(45,99,216,0.04), rgba(113,56,184,0.04));
+    }
+
+    .preview-kicker,
+    .preview-action {
+      position: absolute;
+      z-index: 2;
+      left: 15px;
+      right: 15px;
+    }
+
+    .preview-kicker {
+      top: 14px;
+      width: fit-content;
+      right: auto;
+      padding: 7px 10px;
+      border: 1px solid rgba(45,99,216,0.12);
+      border-radius: 999px;
+      color: var(--blue);
+      background: rgba(255,255,255,0.94);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      box-shadow: 0 8px 18px rgba(13,45,87,0.08);
+    }
+
+    .preview-action {
+      bottom: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--navy);
+      font-size: 0.95rem;
+      font-weight: 850;
+      text-align: left;
+    }
+
+    .preview-action span:last-child {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      flex: 0 0 auto;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--white);
+      background: var(--navy);
+      font-size: 1rem;
     }
 
     .lightbox {
@@ -1648,101 +1702,16 @@
             </div>
           </article>
 
-          <article class="card exploration-card exploration-feature">
+          <article class="card exploration-card">
             <div class="exploration-visual infographic-frame">
               <button class="infographic-button" type="button" aria-label="Open Adaptive Intelligence infographic">
-                <img src="adaptive-intelligence.png" alt="Adaptive Intelligence in Action infographic showing signals, interpretation, relevance, recommended treatment, human decision, and a learning loop." />
+                <img src="adaptive-intelligence.png" alt="Preview of the Adaptive Intelligence in Action model." />
+                <span class="preview-kicker">Adaptive Intelligence</span>
+                <span class="preview-action">
+                  <span>Open full model</span>
+                  <span aria-hidden="true">↗</span>
+                </span>
               </button>
-              <p class="visual-caption">Select the infographic to view it at full size.</p>
-              <div style="display:none"><svg width="100%" viewBox="0 0 520 300" fill="none" aria-label="Adaptive Intelligence decision interface">
-                <defs>
-                  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-                    <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#0D2D57" flood-opacity="0.08"/>
-                  </filter>
-                </defs>
-
-                <rect x="8" y="10" width="504" height="280" rx="24" fill="#F8FAFC" stroke="#DCE4EE"/>
-
-                <text x="28" y="38" font-size="14" font-weight="700" fill="#0B1F3A" font-family="Arial">Incoming signals</text>
-                <text x="198" y="38" font-size="14" font-weight="700" fill="#0B1F3A" font-family="Arial">Decision context</text>
-                <text x="366" y="38" font-size="14" font-weight="700" fill="#0B1F3A" font-family="Arial">Treatment</text>
-
-                <g filter="url(#shadow)">
-                  <rect x="24" y="56" width="142" height="42" rx="12" fill="#FFFFFF" stroke="#DCE4EE"/>
-                  <circle cx="43" cy="77" r="7" fill="#2D63D8"/>
-                  <text x="58" y="73" font-size="11" font-weight="700" fill="#0B1F3A" font-family="Arial">Customer activity</text>
-                  <text x="58" y="87" font-size="9.5" fill="#697386" font-family="Arial">Engagement spike</text>
-
-                  <rect x="24" y="106" width="142" height="42" rx="12" fill="#FFFFFF" stroke="#DCE4EE"/>
-                  <circle cx="43" cy="127" r="7" fill="#C97D16"/>
-                  <text x="58" y="123" font-size="11" font-weight="700" fill="#0B1F3A" font-family="Arial">Supply exposure</text>
-                  <text x="58" y="137" font-size="9.5" fill="#697386" font-family="Arial">Potential disruption</text>
-
-                  <rect x="24" y="156" width="142" height="42" rx="12" fill="#FFFFFF" stroke="#DCE4EE"/>
-                  <circle cx="43" cy="177" r="7" fill="#7138B8"/>
-                  <text x="58" y="173" font-size="11" font-weight="700" fill="#0B1F3A" font-family="Arial">Product relationship</text>
-                  <text x="58" y="187" font-size="9.5" fill="#697386" font-family="Arial">Relevant alternative</text>
-
-                  <rect x="24" y="206" width="142" height="42" rx="12" fill="#FFFFFF" stroke="#DCE4EE"/>
-                  <circle cx="43" cy="227" r="7" fill="#0C8A83"/>
-                  <text x="58" y="223" font-size="11" font-weight="700" fill="#0B1F3A" font-family="Arial">Opportunity signal</text>
-                  <text x="58" y="237" font-size="9.5" fill="#697386" font-family="Arial">No recent movement</text>
-                </g>
-
-                <path d="M166 77H188M166 127H188M166 177H188M166 227H188" stroke="#A8B4C4" stroke-width="2.4" stroke-linecap="round"/>
-                <path d="M181 70L189 77L181 84M181 120L189 127L181 134M181 170L189 177L181 184M181 220L189 227L181 234"
-                      stroke="#A8B4C4" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-
-                <g filter="url(#shadow)">
-                  <rect x="194" y="56" width="148" height="192" rx="18" fill="#FFFFFF" stroke="#DCE4EE"/>
-                  <rect x="208" y="70" width="120" height="28" rx="9" fill="#EEF3FF"/>
-                  <text x="220" y="88" font-size="10.5" font-weight="700" fill="#2D63D8" font-family="Arial">Role: Account lead</text>
-
-                  <rect x="208" y="106" width="120" height="28" rx="9" fill="#EAF7F5"/>
-                  <text x="220" y="124" font-size="10.5" font-weight="700" fill="#0C8A83" font-family="Arial">Objective: Protect growth</text>
-
-                  <rect x="208" y="142" width="120" height="28" rx="9" fill="#F2ECFA"/>
-                  <text x="220" y="160" font-size="10.5" font-weight="700" fill="#7138B8" font-family="Arial">Customer: Strategic</text>
-
-                  <rect x="208" y="178" width="120" height="28" rx="9" fill="#FFF4E6"/>
-                  <text x="220" y="196" font-size="10.5" font-weight="700" fill="#C97D16" font-family="Arial">Urgency: 14 days</text>
-
-                  <text x="208" y="228" font-size="10" fill="#697386" font-family="Arial">Context changes the treatment</text>
-                </g>
-
-                <path d="M342 152H360" stroke="#A8B4C4" stroke-width="2.6" stroke-linecap="round"/>
-                <path d="M352 144L361 152L352 160" stroke="#A8B4C4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
-
-                <g filter="url(#shadow)">
-                  <rect x="366" y="56" width="130" height="44" rx="12" fill="#E9F8F1" stroke="#BFE7D3"/>
-                  <circle cx="386" cy="78" r="9" fill="#198754"/>
-                  <path d="M382 78L385 81L391 74" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  <text x="402" y="73" font-size="11" font-weight="700" fill="#14532D" font-family="Arial">Act now</text>
-                  <text x="402" y="87" font-size="9.5" fill="#4B6B57" font-family="Arial">Owner + next action</text>
-
-                  <rect x="366" y="108" width="130" height="44" rx="12" fill="#FFF4E6" stroke="#F0D5A8"/>
-                  <circle cx="386" cy="130" r="9" fill="#C97D16"/>
-                  <text x="383" y="134" font-size="11" font-weight="700" fill="#FFFFFF" font-family="Arial">?</text>
-                  <text x="402" y="125" font-size="11" font-weight="700" fill="#7A4A0B" font-family="Arial">Review</text>
-                  <text x="402" y="139" font-size="9.5" fill="#7A684E" font-family="Arial">Needs human context</text>
-
-                  <rect x="366" y="160" width="130" height="44" rx="12" fill="#EEF3FF" stroke="#CCD9F6"/>
-                  <circle cx="386" cy="182" r="9" fill="#2D63D8"/>
-                  <path d="M386 176V182L390 185" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
-                  <text x="402" y="177" font-size="11" font-weight="700" fill="#1E3A8A" font-family="Arial">Monitor</text>
-                  <text x="402" y="191" font-size="9.5" fill="#62739A" font-family="Arial">Watch for change</text>
-
-                  <rect x="366" y="212" width="130" height="44" rx="12" fill="#F1F3F6" stroke="#D8DDE5"/>
-                  <circle cx="386" cy="234" r="9" fill="#7B8494"/>
-                  <path d="M381 234H391" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
-                  <text x="402" y="229" font-size="11" font-weight="700" fill="#374151" font-family="Arial">Suppress</text>
-                  <text x="402" y="243" font-size="9.5" fill="#717A89" font-family="Arial">No action required</text>
-                </g>
-
-                <text x="260" y="278" text-anchor="middle" font-size="10.5" fill="#697386" font-family="Arial">
-                  Relevance is determined by role, objective, context, urgency, and consequence
-                </text>
-              </svg></div>
             </div>
 
             <div class="exploration-body">

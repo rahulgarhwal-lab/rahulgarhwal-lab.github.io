@@ -374,9 +374,25 @@
       font-size: 1.1rem;
     }
 
-    .question-grid {
+    .tension-path {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: -8px 0 26px;
+      color: var(--muted);
+      font-size: 0.86rem;
+      font-weight: 760;
+    }
+
+    .tension-path span {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(45, 99, 216, 0.38), rgba(12, 138, 131, 0.38), rgba(113, 56, 184, 0.38));
+    }
+
+    .tension-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 18px;
     }
 
@@ -389,20 +405,128 @@
       box-shadow: var(--shadow);
     }
 
-    .question-card {
-      min-height: 300px;
+    .tension-card {
+      min-height: 100%;
       overflow: hidden;
+      padding-top: 34px;
     }
 
-    .question-card::after {
+    .tension-card::before {
       content: "";
       position: absolute;
-      right: -52px;
-      bottom: -76px;
-      width: 170px;
-      height: 170px;
+      inset: 0 0 auto;
+      height: 5px;
+      background: var(--blue);
+    }
+
+    .tension-card:nth-child(2)::before {
+      background: var(--teal);
+    }
+
+    .tension-card:nth-child(3)::before {
+      background: var(--purple);
+    }
+
+    .tension-card::after {
+      content: "";
+      position: absolute;
+      right: -68px;
+      bottom: -88px;
+      width: 190px;
+      height: 190px;
       border-radius: 50%;
-      background: linear-gradient(135deg, rgba(45, 99, 216, 0.11), rgba(113, 56, 184, 0.05));
+      background: linear-gradient(135deg, rgba(45, 99, 216, 0.08), rgba(113, 56, 184, 0.04));
+      pointer-events: none;
+    }
+
+    .tension-card:nth-child(2)::after {
+      background: linear-gradient(135deg, rgba(12, 138, 131, 0.09), rgba(45, 99, 216, 0.03));
+    }
+
+    .tension-card:nth-child(3)::after {
+      background: linear-gradient(135deg, rgba(113, 56, 184, 0.08), rgba(201, 125, 22, 0.04));
+    }
+
+    .tension-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+
+    .tension-number {
+      color: var(--blue);
+      font-size: 0.8rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .tension-card:nth-child(2) .tension-number {
+      color: var(--teal);
+    }
+
+    .tension-card:nth-child(3) .tension-number {
+      color: var(--purple);
+    }
+
+    .tension-icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 15px;
+      color: var(--blue);
+      background: rgba(45, 99, 216, 0.08);
+    }
+
+    .tension-card:nth-child(2) .tension-icon {
+      color: var(--teal);
+      background: rgba(12, 138, 131, 0.09);
+    }
+
+    .tension-card:nth-child(3) .tension-icon {
+      color: var(--purple);
+      background: rgba(113, 56, 184, 0.09);
+    }
+
+    .tension-card > h3 {
+      margin-bottom: 14px;
+      font-size: clamp(1.45rem, 2.2vw, 2rem);
+    }
+
+    .tension-summary {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 24px !important;
+      color: var(--ink-soft);
+    }
+
+    .tension-question {
+      position: relative;
+      z-index: 1;
+      padding: 20px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .tension-question:last-child {
+      padding-bottom: 0;
+    }
+
+    .tension-question h4 {
+      margin: 0 0 8px;
+      color: var(--ink);
+      font-size: 1rem;
+      line-height: 1.35;
+      letter-spacing: -0.015em;
+    }
+
+    .tension-question p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.93rem;
+      line-height: 1.58;
     }
 
     .icon-badge {
@@ -414,23 +538,6 @@
       border-radius: 15px;
       color: var(--blue);
       background: rgba(45, 99, 216, 0.08);
-    }
-
-    .question-card:nth-child(2) .icon-badge,
-    .question-card:nth-child(6) .icon-badge {
-      color: var(--teal);
-      background: rgba(12, 138, 131, 0.09);
-    }
-
-    .question-card:nth-child(3) .icon-badge,
-    .question-card:nth-child(5) .icon-badge {
-      color: var(--purple);
-      background: rgba(113, 56, 184, 0.09);
-    }
-
-    .question-card:nth-child(4) .icon-badge {
-      color: var(--gold);
-      background: rgba(201, 125, 22, 0.1);
     }
 
     .card-kicker {
@@ -961,7 +1068,7 @@
 
       .menu-button { display: inline-flex; }
 
-      .question-grid,
+      .tension-grid,
       .evidence-grid {
         grid-template-columns: 1fr;
       }
@@ -990,7 +1097,9 @@
 
       .section { padding: 68px 0; }
 
-      .question-card { min-height: auto; }
+      .tension-path {
+        display: none;
+      }
 
       .chain-grid,
       .metric-row,
@@ -1148,111 +1257,122 @@
       <div class="container">
         <div class="section-intro">
           <p class="eyebrow">Questions behind the Lab</p>
-          <h2>The technology changes. The enterprise tensions remain.</h2>
+          <h2>The hardest questions begin after the capability exists.</h2>
           <p>
-            These are not questions with one universal answer. They are recurring decisions
-            that determine whether capability becomes useful.
+            Technology creates possibility. Value depends on where it is applied, how it enters
+            the work, and whether the organization can prove and scale the result.
           </p>
         </div>
 
-        <div class="question-grid">
-          <article class="card question-card">
-            <div class="icon-badge">
-              <svg width="25" height="25" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.8"/>
-                <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/>
-                <path d="M12 2V5M22 12H19M12 22V19M2 12H5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-              </svg>
+        <div class="tension-path" aria-hidden="true">
+          <span></span>
+          Choose where to intervene → Make intelligence usable → Prove and scale value
+          <span></span>
+        </div>
+
+        <div class="tension-grid">
+          <article class="card tension-card">
+            <div class="tension-head">
+              <span class="tension-number">01 · Intervention</span>
+              <div class="tension-icon">
+                <svg width="25" height="25" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.8"/>
+                  <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/>
+                  <path d="M12 2V5M22 12H19M12 22V19M2 12H5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+              </div>
             </div>
-            <p class="card-kicker">Decision</p>
-            <h3>Which decisions matter enough to redesign?</h3>
-            <p>
-              Organizations often begin with available data or a promising technology.
-              A more demanding starting point is the decision itself: who makes it, why it
-              is difficult, what information is missing, and what should improve if the
-              decision changes.
+
+            <h3>Where should capability change the business?</h3>
+            <p class="tension-summary">
+              Not every process needs more intelligence, automation, or AI. The first choice is
+              where better support can materially change growth, cost, risk, customer experience,
+              or execution.
             </p>
+
+            <div class="tension-question">
+              <h4>Which decisions are consequential enough to redesign?</h4>
+              <p>
+                Who makes the decision today? What makes it difficult? What information is missing?
+                What should improve if the decision changes?
+              </p>
+            </div>
+
+            <div class="tension-question">
+              <h4>What should AI support, automate, or leave human?</h4>
+              <p>
+                Consequence, uncertainty, context, reversibility, and accountability should determine
+                where AI assists and where judgment remains human.
+              </p>
+            </div>
           </article>
 
-          <article class="card question-card">
-            <div class="icon-badge">
-              <svg width="25" height="25" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M3 12C5.2 8.5 8.2 7 12 7C15.8 7 18.8 8.5 21 12C18.8 15.5 15.8 17 12 17C8.2 17 5.2 15.5 3 12Z" stroke="currentColor" stroke-width="1.8"/>
-                <circle cx="12" cy="12" r="2.5" stroke="currentColor" stroke-width="1.8"/>
-              </svg>
+          <article class="card tension-card">
+            <div class="tension-head">
+              <span class="tension-number">02 · Use</span>
+              <div class="tension-icon">
+                <svg width="25" height="25" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M3 12C5.2 8.5 8.2 7 12 7C15.8 7 18.8 8.5 21 12C18.8 15.5 15.8 17 12 17C8.2 17 5.2 15.5 3 12Z" stroke="currentColor" stroke-width="1.8"/>
+                  <circle cx="12" cy="12" r="2.5" stroke="currentColor" stroke-width="1.8"/>
+                </svg>
+              </div>
             </div>
-            <p class="card-kicker">Attention</p>
-            <h3>When does more intelligence create less focus?</h3>
-            <p>
-              More signals, models, alerts, and recommendations can create a new burden:
-              deciding what deserves attention now. A comprehensive product may still be
-              operationally unusable.
+
+            <h3>What makes intelligence usable in practice?</h3>
+            <p class="tension-summary">
+              Access to information does not guarantee attention, trust, action, or adoption.
+              Intelligence must become relevant in the moment and environment where the work occurs.
             </p>
+
+            <div class="tension-question">
+              <h4>When does more intelligence create less focus?</h4>
+              <p>
+                Signals, predictions, alerts, and recommendations can increase cognitive burden
+                when users must determine what matters on their own.
+              </p>
+            </div>
+
+            <div class="tension-question">
+              <h4>Why do capable products fail to become part of the work?</h4>
+              <p>
+                Workflow fit, timing, trust, ownership, and a clear next action determine whether
+                a capability changes behavior or remains another destination.
+              </p>
+            </div>
           </article>
 
-          <article class="card question-card">
-            <div class="icon-badge">
-              <svg width="25" height="25" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M4 5H20V19H4V5Z" stroke="currentColor" stroke-width="1.8"/>
-                <path d="M8 9H16M8 13H13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                <path d="M16 16L18 18L21 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
+          <article class="card tension-card">
+            <div class="tension-head">
+              <span class="tension-number">03 · Value</span>
+              <div class="tension-icon">
+                <svg width="25" height="25" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M4 18V11L9 7L13 10L20 4V18H4Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                  <path d="M4 18H20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+              </div>
             </div>
-            <p class="card-kicker">Adoption</p>
-            <h3>Why do capable products fail to become part of the work?</h3>
-            <p>
-              Sustained use depends on workflow fit, trust, ownership, clarity, and visible
-              value. Adoption is not only a launch problem. It is also a product-design and
-              operating-model problem.
-            </p>
-          </article>
 
-          <article class="card question-card">
-            <div class="icon-badge">
-              <svg width="25" height="25" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M8 7C8 5.3 9.3 4 11 4H13C14.7 4 16 5.3 16 7V8C17.7 8 19 9.3 19 11V13C19 14.7 17.7 16 16 16V17C16 18.7 14.7 20 13 20H11C9.3 20 8 18.7 8 17V16C6.3 16 5 14.7 5 13V11C5 9.3 6.3 8 8 8V7Z" stroke="currentColor" stroke-width="1.8"/>
-                <path d="M9 11H15M9 14H13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <p class="card-kicker">AI + Human Judgment</p>
-            <h3>What should AI support, automate, or leave human?</h3>
-            <p>
-              Capability alone does not determine where AI belongs. Consequence, uncertainty,
-              context, explainability, reversibility, and accountability should shape the
-              human role in the decision.
+            <h3>What turns product success into enterprise value?</h3>
+            <p class="tension-summary">
+              A product may achieve adoption and measurable results within one boundary while the
+              wider business capability remains fragmented.
             </p>
-          </article>
 
-          <article class="card question-card">
-            <div class="icon-badge">
-              <svg width="25" height="25" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M4 18V11L9 7L13 10L20 4V18H4Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-                <path d="M4 18H20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-              </svg>
+            <div class="tension-question">
+              <h4>What must change beyond the product boundary?</h4>
+              <p>
+                Ownership, decision rights, incentives, governance, and operating-model alignment
+                often determine whether success can extend across the enterprise.
+              </p>
             </div>
-            <p class="card-kicker">Transformation</p>
-            <h3>What turns a successful product into enterprise transformation?</h3>
-            <p>
-              A product can scale while the surrounding business capability remains fragmented.
-              Ownership, decision rights, incentives, governance, and operating-model change
-              often determine what happens beyond the product boundary.
-            </p>
-          </article>
 
-          <article class="card question-card">
-            <div class="icon-badge">
-              <svg width="25" height="25" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M5 19V13M10 19V9M15 19V6M20 19V3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                <path d="M4 21H21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-              </svg>
+            <div class="tension-question">
+              <h4>What evidence proves value was realized?</h4>
+              <p>
+                Delivery, access, and usage show activity. Changed decisions, behavior, efficiency,
+                risk, engagement, and economic outcomes show whether something important improved.
+              </p>
             </div>
-            <p class="card-kicker">Value</p>
-            <h3>How do we know value was actually realized?</h3>
-            <p>
-              Delivery, access, usage, and output are useful measures. They are not the same as
-              changed behavior, improved decisions, reduced effort, avoided risk, stronger
-              engagement, or measurable economic value.
-            </p>
           </article>
         </div>
       </div>

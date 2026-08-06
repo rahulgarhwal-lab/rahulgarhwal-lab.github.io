@@ -742,6 +742,31 @@
       font-size: 1.04rem;
     }
 
+
+    .exploration-status {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      max-width: 760px;
+      margin: -4px 0 22px;
+      padding: 14px 16px;
+      border: 1px solid rgba(45, 99, 216, 0.14);
+      border-radius: 13px;
+      color: var(--ink-soft);
+      background: rgba(45, 99, 216, 0.045);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .exploration-status strong {
+      flex: 0 0 auto;
+      color: var(--blue);
+      font-size: 0.73rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
     .lens-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -2039,6 +2064,77 @@
               <p class="quote">
                 Product scale and enterprise transformation are related, but they are not the same
                 organizational achievement.
+              </p>
+            </div>
+          </article>
+
+
+          <article class="card exploration-card">
+            <div class="exploration-visual">
+              <svg width="100%" viewBox="0 0 320 220" fill="none" aria-label="One role-aware enterprise interface connecting governed products, data, and workflows">
+                <rect x="82" y="62" width="156" height="76" rx="22" fill="#E9F0FF" stroke="#2D63D8" stroke-width="3"/>
+                <circle cx="160" cy="82" r="10" stroke="#2D63D8" stroke-width="3"/>
+                <path d="M143 112C146 99 153 94 160 94C167 94 174 99 177 112" stroke="#2D63D8" stroke-width="3" stroke-linecap="round"/>
+                <text x="160" y="128" text-anchor="middle" font-size="13" fill="#17304D" font-family="Arial" font-weight="700">Role-aware interface</text>
+
+                <rect x="12" y="162" width="82" height="42" rx="14" fill="#EEF8F7" stroke="#0C8A83" stroke-width="2"/>
+                <rect x="119" y="162" width="82" height="42" rx="14" fill="#F3EEFA" stroke="#7138B8" stroke-width="2"/>
+                <rect x="226" y="162" width="82" height="42" rx="14" fill="#FFF4E7" stroke="#C97D16" stroke-width="2"/>
+
+                <text x="53" y="187" text-anchor="middle" font-size="12" fill="#33445F" font-family="Arial">Products</text>
+                <text x="160" y="187" text-anchor="middle" font-size="12" fill="#33445F" font-family="Arial">Data</text>
+                <text x="267" y="187" text-anchor="middle" font-size="12" fill="#33445F" font-family="Arial">Workflows</text>
+
+                <path d="M126 138L72 162M160 138V162M194 138L248 162" stroke="#91A1B8" stroke-width="2.5" stroke-linecap="round"/>
+                <path d="M72 154L72 162L80 158M152 154L160 162L168 154M240 158L248 162L248 154" stroke="#91A1B8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+                <rect x="101" y="12" width="118" height="30" rx="15" fill="#F7F9FC" stroke="#B5C0CF" stroke-width="2"/>
+                <text x="160" y="32" text-anchor="middle" font-size="12" fill="#33445F" font-family="Arial">Question → decision → action</text>
+                <path d="M160 42V62" stroke="#91A1B8" stroke-width="2.5" stroke-linecap="round"/>
+                <path d="M153 54L160 62L167 54" stroke="#91A1B8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+
+            <div class="exploration-body">
+              <div class="exploration-number">Current Exploration 04</div>
+              <h3>From individual assistants to one enterprise intelligence interface.</h3>
+              <p class="summary">
+                Product-level assistants are making enterprise tools easier to use. As these
+                capabilities multiply, I am exploring whether one role-aware conversational
+                interface can reach across governed products, data, and workflows—carrying context
+                from question to decision to action.
+              </p>
+
+              <p class="exploration-status">
+                <strong>Status</strong>
+                <span>An active product and architecture exploration, not yet a proven enterprise capability.</span>
+              </p>
+
+              <div class="lens-grid">
+                <div class="lens">
+                  <strong>Common pattern</strong>
+                  <p>
+                    Useful assistants improve individual products, while users still move between
+                    tools and carry context across systems themselves.
+                  </p>
+                </div>
+                <div class="lens">
+                  <strong>Difficult trade-off</strong>
+                  <p>
+                    A shared interface must reduce navigation burden without weakening permissions,
+                    source authority, specialized context, or human accountability.
+                  </p>
+                </div>
+                <div class="lens">
+                  <strong>Diagnostic question</strong>
+                  <p>Are we making each product easier to use—or making the enterprise easier to navigate?</p>
+                </div>
+              </div>
+
+              <p class="quote">
+                What is being explored: a role-aware AI interface connected to governed enterprise
+                intelligence and workflows through MCP-enabled architecture, beginning with a
+                controlled use case to test security, context, user experience, and business value.
               </p>
             </div>
           </article>
